@@ -1,6 +1,6 @@
 global class AccountOwnerReassignment implements
              Database.Batchable<SObject>, Database.Stateful{
-     
+    //vamsi commit 
     User fromUser{get; set;}
     User toUser{get; set;}
     Double failedUpdates{get; set;}

@@ -1,0 +1,33 @@
+<apex:page Controller="editdeleteCOn" >
+<apex:form >
+ <apex:sectionHeader title="Edit/Delete" subtitle="Auditing Accounts"/>
+ <div align='right'>
+ <apex:commandButton value="Insert New" action="{!insertNew}" style="width:150px"/>
+  </div>
+  <br/>
+  <apex:pageBlock >
+   <apex:pageBlockTable value="{!lstacc}" var="acc">
+     <apex:column > 
+     {!acc.name}
+     <apex:param name="aid" value="{!acc.id}" />
+     </apex:column>
+     <apex:column value="{!acc.Website}" />
+     <apex:column value="{!acc.phone}" />
+     <apex:column headerValue="Action" >
+      <apex:commandLink value="Edit" action="{!editCon}"> 
+      <apex:param name="cid" value="{!acc.id}" assignTo="{!ecid}"/>
+      </apex:commandlink>
+      &nbsp;&nbsp;/&nbsp;&nbsp;
+      <apex:commandLink value="Delete" action="{!deleteCon}">
+      <apex:param name="cid" value="{!acc.id}" assignTo="{!dcid}"/>
+      </apex:commandLink>
+      &nbsp;&nbsp;/&nbsp;&nbsp;
+      <apex:commandLink value="Clone" action="{!cloneCon}">
+      <apex:param name="cid" value="{!acc.id}" assignTo="{!ccid}"/>
+      </apex:commandLink>
+     </apex:column>
+   </apex:pageBlockTable>
+   <apex:detail subject="{!$CurrentPage.parameters.aid}"/>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

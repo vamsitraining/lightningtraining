@@ -1,0 +1,52 @@
+<apex:page standardController="Doctor__c" extensions="newvf1">
+  <apex:form >
+   <apex:pageBlock >
+   
+    <apex:pageBlockButtons >
+     <apex:outputPanel >
+     <apex:commandButton value="gotooptional" status="status" action="{!showselected}"/>
+     </apex:outputPanel>
+    </apex:pageBlockButtons>
+   
+    <apex:pageBlockSection title="Mandatory Doctors">
+          <apex:pageBlockTable value="{!conres}" var="doc" cellpadding="40">
+      <apex:column headerValue="Selected">
+<apex:inputCheckbox value="{!doc.selected}"/>
+</apex:column>
+      
+     <apex:column >
+    <apex:facet name="header">Doctorname</apex:facet>
+    <apex:outputText value="{!doc.acc.name}"></apex:outputText>
+    </apex:column>
+     </apex:pageBlockTable>
+        
+     
+    </apex:pageBlockSection>
+   </apex:pageBlock> 
+   
+   
+   <apex:pageBlock >
+   
+   <apex:pageBlockButtons >
+     <apex:outputPanel >
+     <apex:commandButton value="gotoMandatory" status="status" action="{!showselected1}"/>
+     </apex:outputPanel>
+    </apex:pageBlockButtons>
+   
+    <apex:pageBlockSection title="optional Doctors">
+        
+        <apex:pageBlockTable value="{!conres1}" var="doc" cellpadding="40">
+      <apex:column headerValue="Selected">
+<apex:inputCheckbox value="{!doc.selected}"/>
+</apex:column>
+      
+     <apex:column >
+    <apex:facet name="header">Doctorname</apex:facet>
+    <apex:outputText value="{!doc.acc.name}"></apex:outputText>
+    </apex:column>
+     </apex:pageBlockTable>
+     
+    </apex:pageBlockSection>
+   </apex:pageBlock> 
+  </apex:form>
+</apex:page>

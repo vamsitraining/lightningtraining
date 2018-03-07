@@ -1,0 +1,44 @@
+<apex:page standardController="Contact">
+<script>
+
+var returnURL;
+
+window.onload =  function(){
+returnURL = gup('retURL');
+//alert('Set retURL = ' + returnURL);
+
+};
+
+function gup( name ){  //this function just grabs HTTP params by name
+
+name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]"); 
+var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+var regex = new RegExp( regexS ); 
+var results = regex.exec( window.location.href );
+ if( results == null )    return ""; 
+else    return results[1];}
+
+function redirectBack(){
+//alert('Sending you back to ' + returnURL);
+window.location.href = '/' + returnURL;
+}
+
+</script>
+
+<apex:form >
+<apex:actionFunction name="saveActionFunc" action="{!Save}" oncomplete="redirectBack()" rerender="theBlock" />
+
+<apex:pageBlock mode="Edit" id="theBlock" >
+<apex:pageBlockButtons >
+<apex:commandButton value="Save" onClick="saveActionFunc();"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection >
+<apex:inputField value="{!Contact.LastName}" />
+<apex:inputField value="{!Contact.FirstName}" />  
+<apex:inputField value="{!Contact.Email}" />   
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

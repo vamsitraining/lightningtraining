@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Internal Support</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Internal Support</value>
+    </caseValues>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile --></label>
+        <name>Profile__c</name>
+        <picklistValues>
+            <masterLabel>Silver Partner User</masterLabel>
+            <translation><!-- Silver Partner User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solution Manager</masterLabel>
+            <translation><!-- Solution Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Platform User</masterLabel>
+            <translation><!-- Standard Platform User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard User</masterLabel>
+            <translation><!-- Standard User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Administrator</masterLabel>
+            <translation><!-- System Administrator --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please provide the reason why you created the request --></help>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Type --></label>
+        <name>Request_Type__c</name>
+        <picklistValues>
+            <masterLabel>Profile Update</masterLabel>
+            <translation><!-- Profile Update --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Requested time --></label>
+        <name>Requested_time__c</name>
+        <picklistValues>
+            <masterLabel>1 Day</masterLabel>
+            <translation><!-- 1 Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Hour</masterLabel>
+            <translation><!-- 1 Hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Hour</masterLabel>
+            <translation><!-- 2 Hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Hour</masterLabel>
+            <translation><!-- 4 Hour --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Internal Support --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Internal Support Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

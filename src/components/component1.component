@@ -1,0 +1,6 @@
+<apex:component >
+<apex:form >
+<apex:outputtext value="Wish U Happy New Year 2012" style="color:blue;font-size:20px;"/> <br/>
+<apex:outputtext value="==========================================" />
+</apex:form>
+</apex:component>

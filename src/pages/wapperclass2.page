@@ -1,0 +1,46 @@
+<apex:page standardController="Opportunity" extensions="Displayprodsinopprtunity" Tabstyle="Opportunity" >
+ <script>
+ function checkAll(cb)
+ {
+  var inputElem = document.getElementsByTagName("input");
+  for(var i=0; i<inputElem.length; i++)
+  {
+   if(inputElem[i].id.indexOf("checkedone")!=-1)
+    inputElem[i].checked = cb.checked;
+  }
+ }    
+ </script>
+ <apex:form >
+  <apex:pageBlock >
+   <apex:pageBlockSection Title="List of Available Products" id="ListProd">
+   <apex:dataTable value="{!Products}"  var="a" columnswidth="50px,50px" cellpadding="4" border="1">
+    <apex:column >
+     <apex:facet name="header">
+      <apex:inputCheckbox >
+       <apex:actionSupport event="onclick" action="{!GetSelected}" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+      </apex:inputCheckbox>
+     </apex:facet>
+     <apex:inputCheckbox value="{!a.selected}" id="checkedone">
+      <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="Selected_PBS"/>
+     </apex:inputCheckbox>
+    </apex:column>
+    <apex:column headervalue="Product Id" value="{!a.prd.Id}" />
+    <apex:column headervalue="Product Name" value="{!a.prd.PricebookEntry.Product2Id}" />
+    <apex:column headervalue="List Price" value="{!a.prd.ListPrice}" />
+    <apex:column headervalue="Quantity" value="{!a.prd.Quantity}" />
+   </apex:dataTable>
+   </apex:pageBlockSection>
+   <apex:pageBlockSection Title="Selected Products" id="Selected_PBS">
+    <apex:dataTable value="{!SelectedProducts}" var="s" columnswidth="50px,50px" cellpadding="4" border="1">
+     <apex:column headervalue="Product Id" value="{!s.Id}" />
+     <apex:column headervalue="Name" value="{!s.PricebookEntry.Name}" />
+     <apex:column headervalue="List Price" value="{!s.ListPrice}" />
+     <apex:column headervalue="Quantity" value="{!s.Quantity}" />
+    </apex:dataTable>
+   </apex:pageBlockSection>
+   <apex:commandButton action="{!updateQuantity}" ReRender="ListProd"  Value="Update Quantity"/>
+   <apex:commandButton action="{!SendMail}" ReRender="ListProd"  Value="Send Mail"/>
+  </apex:pageBlock>
+ </apex:form>
+
+</apex:page>

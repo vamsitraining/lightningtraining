@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>fieldupdatedepartment</fullName>
+        <field>Department__c</field>
+        <literalValue>Development</literalValue>
+        <name>fieldupdatedepartment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>true</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>java_salary_update</fullName>
+        <field>min_salary__c</field>
+        <formula>10000</formula>
+        <name>java salary update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>SalaryUpdate</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Salary__c.Java__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>field update salary</fullName>
+        <actions>
+            <name>fieldupdatedepartment</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Salary__c.Java__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>update salary</fullName>
+        <actions>
+            <name>java_salary_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Salary__c.Java__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

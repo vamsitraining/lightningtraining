@@ -1,0 +1,5 @@
+<apex:page controller="MyCustomController">
+    <apex:form >
+        <apex:inputField value="{!c.AccountId}"/>
+    </apex:form>
+</apex:page>

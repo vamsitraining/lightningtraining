@@ -1,0 +1,10 @@
+<apex:page standardController="contact" extensions="inlinecontroller">
+ <apex:form >
+   <apex:pageBlock title="My Inline Visualforce page">
+    Account Name <apex:outputField value="{!accRec.name}"/><br/>
+     Account Number  <apex:outputField value="{!accRec.accountnumber}"/><br/>
+     Annual Revenue     <apex:outputField value="{!accRec.annualrevenue}"/>
+      <apex:outputText rendered="{!AccNoreceError==True}"> Related Records are not present.. </apex:outputText>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

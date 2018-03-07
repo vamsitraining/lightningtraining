@@ -1,0 +1,219 @@
+<apex:page controller="taskmanage1.TaskCalendarController" title="Task Calendar" tabStyle="TaskCalendar__tab" id="thePage">
+    <link href="/sCSS/25.0/sprites/1342567372000/Theme3/default/gc/Calendar.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css"></link>
+    <script src="/jslibrary/1341513998000/sfdc/Activity.js" type="text/javascript"></script>
+    <apex:sectionHeader title="Task Calendar"/>
+    <apex:form id="theForm">
+        <apex:actionFunction name="refresh" />  
+        <!-- Task Calendar Header -->  
+        <div style="margin-left: 10px;margin-bottom: 10px;">
+            <span style="font-weight: bold">View: </span>
+            <apex:selectList value="{!selectedView}" size="1" onchange="refresh();">
+                <apex:selectOption itemLabel="View by Task Owner" itemValue="ownerview"></apex:selectOption>
+                <apex:selectOption itemLabel="View by Task Account" itemValue="accountview"></apex:selectOption>
+            </apex:selectList>
+        </div>        
+        <apex:pageBlock id="theBlock">
+            <!-- View by Task Owner -->
+            <apex:outputPanel rendered="{!selectedView='ownerview'}">
+                <table style="font-size: 14px">
+                    <tr>
+                        <td style="vertical-align: middle;font-weight: bold;">Task Owner:</td>
+                        <td style="vertical-align: middle;"><apex:inputField value="{!TempTask.OwnerId}" required="false" id="userInput" onchange="refresh();"/></td>                        
+                        <td style="padding-left: 20px;font-weight: bold;vertical-align: middle"><span class="dateText">{!calendarMonth}</span></td>
+                        <td style="padding-left: 10px;vertical-align: middle">
+                            <div class="calendarHeader">
+                            <span class="arrowIcons">
+                                <apex:commandLink action="{!previousMonth}" styleClass="prev" title="Previous Month">
+                                    <img src="/s.gif" alt="Previous Month" class="prevCalArrow" title="Previous Month"/>
+                                </apex:commandLink>
+                                <apex:commandLink action="{!nextMonth}" styleClass="next" title="Next Month">
+                                    <img src="/s.gif" alt="Next Month" class="nextCalArrow" title="Next Month"/>
+                                </apex:commandLink>
+                            </span></div>
+                        </td>
+                    </tr>    
+                    <apex:outputText rendered="{!$User.Id <> tempTask.OwnerId}">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td colspan="3" style="font-size: 12px;padding-left: 5px;"><apex:commandLink value="[Back to My Calendar]" action="{!showMyCalendar}"/></td>
+                        </tr>                
+                    </apex:outputText>                    
+                </table> 
+            </apex:outputPanel>   
+            <!-- View by Task Owner End -->
+            <!-- View by Task Account -->
+            <apex:outputPanel rendered="{!selectedView='accountview'}">
+                <table style="font-size: 14px">                    
+                    <tr>
+                        <td style="vertical-align: middle;font-weight: bold;">Task Account:</td>
+                        <td colspan="4" style="vertical-align: middle;">
+                            <apex:inputField value="{!tempContact.AccountId}" id="accountInput" onchange="refresh();"/>                        
+                        </td>
+                        <td style="padding-left: 20px;font-weight: bold;vertical-align: middle"><span class="dateText">{!calendarMonth}</span></td>
+                        <td style="padding-left: 10px;vertical-align: middle">
+                            <div class="calendarHeader">
+                            <span class="arrowIcons">
+                                <apex:commandLink action="{!previousMonth}" styleClass="prev" title="Previous Month">
+                                    <img src="/s.gif" alt="Previous Month" class="prevCalArrow" title="Previous Month"/>
+                                </apex:commandLink>
+                                <apex:commandLink action="{!nextMonth}" styleClass="next" title="Next Month">
+                                    <img src="/s.gif" alt="Next Month" class="nextCalArrow" title="Next Month"/>
+                                </apex:commandLink>
+                            </span></div>
+                        </td>
+                    </tr>
+                </table> 
+            </apex:outputPanel>  
+            <!-- View by Task Account End -->       
+        </apex:pageBlock>                   
+        <!-- Task Calendar Header End -->
+        <!-- Monthly Task Calendar -->         
+        <div class="bCalendar">
+            <div class="bPageBlock brndScnBrd secondaryPalette">
+                <div class="pbBody">
+                    <table class="calendarMonthView secondaryPalette" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr class="headerRow">
+                                <td class="upperLeft weekLink">&nbsp;</td>
+                                <th class="calDays" scope="col">Sunday</th>
+                                <th class="calDays" scope="col">Monday</th>
+                                <th class="calDays" scope="col">Tuesday</th>
+                                <th class="calDays" scope="col">Wednesday</th>
+                                <th class="calDays" scope="col">Thursday</th>
+                                <th class="calDays" scope="col">Friday</th>
+                                <th class="calDays" scope="col">Saturday</th>
+                            </tr>                            
+                            <apex:repeat value="{!monthlyCalendar.WeeklyCalendarList}" var="wc">
+                                <tr>
+                                    <td class="weekLink">&nbsp;</td>
+                                    <apex:repeat value="{!wc.DailyCalendarList}" var="dc">
+                                        <td class="{!dc.StyleClass}" style="height:100px;">
+                                            <div class="date">
+                                                <apex:commandLink action="{!addTask}" title="Add Task - {!dc.DateFormat}">
+                                                    <img src="/s.gif" alt="Add Task - {!dc.DateFormat}" class="addNewEventIcon" title="Add Task - {!dc.DateFormat}"/>
+                                                    <apex:param name="selectedDate" value="{!dc.DateFormat}"/>
+                                                </apex:commandLink>                                                                                     
+                                                {!dc.DateFormat}
+                                            </div>
+                                            <apex:repeat value="{!dc.DailyTasks}" var="task" first="0" rows="5">                                                
+                                                <div onmousemove="ActivityHover.getHover('EventHoverPage_{!task.Id}').setPosition(event)" onmouseout="ActivityHover.getHover('EventHoverPage_{!task.Id}').hideHover()" onmouseover="ActivityHover.getHover('EventHoverPage_{!task.Id}').showHover(event, '/ui/core/activity/EventHoverPage')">
+                                                    <apex:outputPanel styleClass="eventIcon" rendered="{!NOT(ISNULL(task.RecurrenceActivityId))}">
+                                                        <img src="/img/recurring_activity.gif" alt="Recurring Task" title="Recurring Task"/>
+                                                    </apex:outputPanel>
+                                                    <a href="/{!task.Id}">{!task.Subject}</a>                                                    
+                                                </div>                                                
+                                            </apex:repeat>                                            
+                                            <apex:outputPanel layout="block" rendered="{!AND(NOT(ISNULL(dc.DailyTasks)), dc.DailyTasks.size > 5)}">
+                                                <a href="{!$Page.DailyTasks}?view={!selectedView}&sd={!URLENCODE(dc.DateFormat)}&su={!TempTask.OwnerId}&sa={!TempContact.AccountId}" style="font-size: 10px; color: red; float: right" onmousemove="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').setPosition(event)" onmouseout="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').hideHover()" onmouseover="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').showHover(event, '/ui/core/activity/EventHoverPage')" onclick="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').hideHover();window.open(this.href, '_blank', 'menubar=0,status=0,titlebar=0,toolbar=0,left=150,top=100,location=0,width=700,height=600');return false;">View All [{!dc.DailyTasks.size}]</a>
+                                            </apex:outputPanel>
+                                        </td>
+                                    </apex:repeat>
+                                </tr>
+                            </apex:repeat>                                                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>  
+        <!-- Monthly Task Calendar End -->      
+        <!-- Task Detail Popup -->          
+        <apex:repeat value="{!monthlyCalendar.WeeklyCalendarList}" var="wc">
+            <apex:repeat value="{!wc.DailyCalendarList}" var="dc">
+                <apex:repeat value="{!dc.DailyTasks}" var="task" first="0" rows="5">                    
+                    <div class="hoverDetail eventBusy hoverDetailOffsetted" id="EventHoverPage_{!task.Id}" onmousemove="ActivityHover.getHover('EventHoverPage_{!task.Id}').setPosition(event)" onmouseout="ActivityHover.getHover('EventHoverPage_{!task.Id}').hideHover()" onmouseover="ActivityHover.getHover('EventHoverPage_{!task.Id}').showHover(event, '/ui/core/activity/EventHoverPage')" style="visibility: hidden; left: 753px; top: 264px; ">
+                        <div class="hoverOuter">
+                            <div class="hoverInner">
+                                <div class="hoverContent" id="EventHoverPage_{!task.Id}_content">
+                                    <div class="eventBlock">
+                                        <div class="bPageBlock brndScnBrd secondaryPalette" id="EventHoverPage_{!task.Id}_page">
+                                            <div class="pbHeader brndPrmBrd">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="pbTitle"><h2 class="mainTitle">Task Detail</h2></td>
+                                                            <!--<td class="pbButton">
+                                                                <input value=" Edit " class="btn" name="edit" onclick="CalFunctions.fixReturnUrlAndNavigateToUrl('/{!task.Id}/e?retURL={!URLENCODE($CurrentPage.URL)}');" title="Edit" type="button"/>                                                            
+                                                                <apex:commandButton value="Delete" action="{!deleteTask}" onclick="return confirm('Are you sure?');">
+                                                                    <apex:param name="tid" value="{!task.Id}" />
+                                                                </apex:commandButton>
+                                                            </td>-->
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="pbBody">
+                                                <div class="pbSubsection">
+                                                    <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                                        <tbody>
+                                                            <tr><td class="labelCol">Assigned To</td><td class="dataCol"><a href="/{!task.OwnerId}">{!task.Owner.Name}</a></td></tr>
+                                                            <tr><td class="labelCol">Subject</td><td class="dataCol"><a href="/{!task.Id}">{!task.Subject}</a></td></tr>
+                                                            <tr><td class="labelCol">Due Date</td><td class="dataCol" style="color: {!IF(task.ActivityDate<TODAY(), 'red', 'black')}"><apex:outputField value="{!task.ActivityDate}"/></td></tr>
+                                                            <tr><td class="labelCol">Related To</td><td class="dataCol"><a href="/{!task.WhatId}">{!task.What.Name}</a></td></tr>
+                                                            <tr><td class="labelCol">Name</td><td class="dataCol"><a href="/{!task.WhoId}">{!task.Who.Name}</a></td></tr>
+                                                            <tr><td class="labelCol last">Status</td><td class="dataCol last">{!task.Status}</td></tr>
+                                                            <tr><td class="labelCol last">Priority</td><td class="dataCol last">{!task.Priority}</td></tr>
+                                                            <tr><td class="labelCol last">Reminder</td><td class="dataCol last"><apex:outputField value="{!task.IsReminderSet}"/><apex:outputField value="{!task.ReminderDatetime}"/></td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </apex:repeat>
+            </apex:repeat>
+        </apex:repeat>   
+        <!-- Task Detail Popup End -->
+        <!-- Daily Task List Popup -->
+        <apex:repeat value="{!monthlyCalendar.WeeklyCalendarList}" var="wc">
+            <apex:repeat value="{!wc.DailyCalendarList}" var="dc">                
+                <div class="hoverDetail eventBusy hoverDetailOffsetted" id="EventHoverPage_{!dc.DateFormat}" onmousemove="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').setPosition(event)" onmouseout="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').hideHover()" onmouseover="ActivityHover.getHover('EventHoverPage_{!dc.DateFormat}').showHover(event, '/ui/core/activity/EventHoverPage')" style="visibility: hidden; left: 753px; top: 264px; ">
+                    <apex:outputPanel layout="block" styleClass="hoverOuter">
+                        <div class="hoverInner">
+                            <div class="hoverContent" id="EventHoverPage_{!dc.DateFormat}_content">
+                                <div class="eventBlock">
+                                    <div class="bPageBlock brndScnBrd secondaryPalette" id="EventHoverPage_{!dc.DateFormat}_page">
+                                        <div class="pbHeader brndPrmBrd">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr><td class="pbTitle"><h2 class="mainTitle">Daily Tasks - {!dc.DateFormat}</h2></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pbBody">
+                                            <div class="pbSubsection">
+                                                <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <apex:repeat value="{!dc.DailyTasks}" var="task">
+                                                            <tr><td class="labelCol">Task Subject</td><td class="dataCol">{!task.Subject}</td></tr>
+                                                        </apex:repeat>                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>                    
+                </div>
+            </apex:repeat>
+        </apex:repeat>      
+        <!-- Daily Task List Popup End -->                                      
+    </apex:form>  
+    <script type="text/javascript">
+        var userInput = document.getElementById("thePage:theForm:theBlock:userInput");
+        if(userInput){
+            userInput.readOnly = true;
+        }
+        var accountInput = document.getElementById("thePage:theForm:theBlock:accountInput");
+        if(accountInput){
+            accountInput.readOnly = true;
+        }
+    </script>  
+</apex:page>

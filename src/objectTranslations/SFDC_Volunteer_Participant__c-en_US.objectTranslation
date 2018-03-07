@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Volunteer Participant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Volunteer Participants</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Volunteer Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Participant Hours --></label>
+        <name>Participant_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Volunteer Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Date --></label>
+        <name>Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Event --></label>
+        <name>Volunteer_Event__c</name>
+        <relationshipLabel><!-- Volunteer Participants --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

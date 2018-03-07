@@ -1,0 +1,16 @@
+<apex:page sidebar="false" controller="wrappertodisplayIntandStringclass1">
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:pageblocktable value="{!lstwrapper}" var="w">
+<apex:column headervalue="Integer">
+{!w.i}
+</apex:column>
+<apex:column headervalue="String">
+{!w.s}
+</apex:column> 
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

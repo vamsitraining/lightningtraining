@@ -1,0 +1,12 @@
+<apex:page sidebar="false" >
+    <apex:form >
+        Country:
+        <apex:selectList size="1">
+            <apex:selectOption itemValue="--None--" itemLabel="--None--"></apex:selectOption>
+            <apex:selectOption itemValue="India" itemLabel="Inida"></apex:selectOption>
+            <apex:selectOption itemValue="US" itemLabel="US"></apex:selectOption>
+            <apex:selectOption itemValue="CANADA" itemLabel="CANADA"></apex:selectOption>
+            <apex:selectOption itemValue="NewZealand" itemLabel="NewZealand"></apex:selectOption>
+        </apex:selectList>
+    </apex:form>
+</apex:page>

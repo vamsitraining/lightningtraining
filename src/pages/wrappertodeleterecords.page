@@ -1,0 +1,32 @@
+<apex:page sidebar="false" controller="wrappertodisplayIntandStringclass2">
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:pageblocktable value="{!lstwrapper}" var="w">
+<apex:column headervalue="Action">
+<apex:inputcheckbox value="{!w.ischecked}"/>
+</apex:column>
+<apex:column headervalue="TrainingTestName">
+{!w.tname} 
+</apex:column>
+<apex:column headervalue="EmployeeName">
+{!w.ename}
+</apex:column> 
+<apex:column headervalue="TrainingTestCity">
+{!w.tcity}
+</apex:column>
+<apex:column headervalue="TrainingTestCountry">
+{!w.tcountry}
+</apex:column>
+<apex:column headervalue="EmployeeSalary">
+{!w.esalary}
+</apex:column>
+<apex:column headervalue="EmployeeDeptno">
+{!w.edeptno}
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+<apex:commandButton value="Delete" action="{!doDelete}"/>
+</apex:pageblock>
+</apex:form>
+</apex:page>

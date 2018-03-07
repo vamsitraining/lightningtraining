@@ -1,0 +1,140 @@
+<apex:page showHeader="false" standardController="Account" extensions="KCTestController">
+
+<style type="text/css">
+.quickfindInput {
+background-image: url(https://ap1.salesforce.com/resource/1364972620000/magnifierGlass);
+background-repeat: no-repeat;
+background-position: 2px 2px;
+padding-left: 22px;
+padding-top: 2px;
+height: 20px;
+border: 2px inset;
+}
+
+</style>
+<body onload="test()">
+<div style="width:300px;margin:0px auto;">
+<table width="100%">
+
+<tr><td>&nbsp;</td></tr>
+<tr>
+<td style="font-weight:bold;">
+<apex:outputLabel style="font-weight:bold;font-size:20px;">Key Church Page</apex:outputLabel>
+</td>
+</tr>
+</table>
+</div>
+</body>
+<apex:form >
+<apex:pageMessages id="errors" />
+
+<script type="text/javascript">
+
+function testUpdate(){
+
+alert(document.getElementById('aname'));
+
+}
+
+function testDiv(){
+document.getElementById('oppDiv').style.display = 'block';
+}
+function test(){
+
+document.getElementById("firstName").value = 'Quick Find';
+}
+function doSearch() {
+
+searchServer(
+document.getElementById("firstName").value
+
+
+);
+}
+
+</script>
+
+<apex:actionFunction name="searchServer" action="{!runSearch}" rerender="results,results1,debug,errors">
+<apex:param name="firstName" value="" />
+<apex:param name="bCity" value="" />
+</apex:actionFunction>
+
+<div style="width:183px;margin:0px 5px;">
+<table width="100%">
+
+<tr><td>&nbsp;</td></tr>
+
+<tr>
+<td style="font-weight:bold;" colspan="3" width="50%" >
+
+<input class="quickfindInput" type="text" id="firstName" onclick="(this.value='')" onblur="rev()" onkeyup="doSearch();" style="border-radius:5px 5px 5px 5px;" title="Quick Find"/>
+<tr><td>&nbsp;</td></tr>
+<span style="font-weight:normal;">search by Name or customer ID</span>
+
+</td>
+</tr>
+</table>
+</div>
+<div style="width:1000px;margin:0px 0px;">
+<div style="width:175px;height:510px;margin:0px 10px;float:left;overflow:auto;">
+<apex:actionRegion >
+<apex:pageBlock id="results" >
+
+<apex:pageBlockTable value="{!accounts}" var="acc" >
+
+<apex:column headerValue="Account Name">
+<apex:commandLink action="{!getAccounts}" value="{!acc.Name}" reRender="results1,results2,oppDiv">
+<apex:param name="accId" value="{!acc.Id}"/>
+<apex:param name="AccountName" value="{!acc.Name}"/>
+</apex:commandLink>
+</apex:column>
+
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:actionRegion>
+</div>
+
+<div style="width:1000px;margin:0px -190px;float:right;height:100%;overflow:auto;">
+
+<apex:pageBlock id="results1" title="Account Details" >
+<table width="100%" align="center" >
+<apex:pageBlockButtons >
+<apex:commandButton value="save" action="{!save}"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockTable value="{!accs}" var="acc1">
+
+<tr><td>&nbsp;</td></tr>
+<tr>
+<td width="11%" align="left" style="font-size:12px;font-weight:bold;">Account Name&nbsp;</td>
+<td width="30%" align="left">
+<apex:column headerValue="Account Name">
+<apex:inputField value="{!acc1.Name}" id="aname">
+
+</apex:inputField>
+</apex:column>
+</td>
+<td width="30%" align="left">
+<apex:inputHidden value="{!acc1.Id}" id="acctId">
+<apex:param name="acctId" value="{!acc1.Id}"/>
+</apex:inputHidden>
+</td>
+<td width="6%" align="left" style="font-size:12px;font-weight:bold;">&nbsp;</td>
+<td width="43%" align="left">
+<apex:column headerValue="Phone">
+<apex:outputField value="{!acc1.phone}" >
+
+</apex:outputField>
+</apex:column>
+</td>
+</tr>
+
+</apex:pageBlockTable>
+
+</table>
+</apex:pageBlock>
+</div>
+</div>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,7 @@
+{!Contact.LastName}
+{!Contact.Email}
+{!Contact.status__c}
+
+please click on the below to view the contact detail
+
+https://na15.salesforce.com/{!Contact.Id}

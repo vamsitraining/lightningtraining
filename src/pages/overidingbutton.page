@@ -1,0 +1,6 @@
+<apex:page standardController="Lead" extensions="LeadTestExtensionController">
+    <apex:form >
+        <apex:commandButton action="{!save}" value="Save" id="btnSave"/>
+        <apex:detail subject="{!Lead.Id}" relatedList="true" showchatter="true" inlineEdit="true" />
+    </apex:form>
+    </apex:page>

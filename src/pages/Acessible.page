@@ -1,0 +1,3 @@
+<apex:page >
+    Accessibility for Object 'Opportunity' is {!$ObjectType.Opportunity.accessible}
+</apex:page>

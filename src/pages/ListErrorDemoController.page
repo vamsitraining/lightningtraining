@@ -1,0 +1,10 @@
+<apex:page controller="ListErrorDemoController">
+   <apex:form >
+      <apex:pageblock >
+          <apex:commandButton value="Show Records" action="{!ErrorMethod}" reRender="pgblck,outptval"/>
+      </apex:pageblock>
+      <apex:pageBlock id="pgblck">
+         <apex:outputField value="{!acc.Name}" id="outptval"/>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>

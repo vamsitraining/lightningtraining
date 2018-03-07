@@ -1,0 +1,4 @@
+<apex:page controller="cls_displaycontactinfo" >
+  <apex:outputText value="{!contact.name}"> </apex:outputText>
+ <apex:outputText value="{!contact.email}"> </apex:outputText>
+</apex:page>

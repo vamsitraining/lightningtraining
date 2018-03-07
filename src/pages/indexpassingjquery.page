@@ -1,0 +1,22 @@
+<apex:page standardController="Account">
+     <apex:pageBlock title="My Content">
+            <apex:variable value="{!1}" var="rowIndex" />
+            <apex:repeat value="{!account.Contacts}" var="item">
+                <apex:outputText value="{!item.name}"/> 
+                <apex:form >
+                   <apex:inputText styleClass="row-{!rowIndex}" value="{!item.email}"/>
+                </apex:form> 
+                 <apex:outputText value="{!rowIndex}"/> 
+                <apex:image url="/s.gif" alt="Lookup (New Window)" styleClass="lookupIcon" onclick="doWhateverUneed({!rowIndex})"/>
+                <apex:variable var="rowIndex" value="{!rowIndex + 1}"/>   
+            </apex:repeat>
+
+        </apex:pageBlock> 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>
+            function doWhateverUneed(index){
+                alert('the value you are looking for is:'+$('.row-'+index).val());
+            }
+        </script>
+   
+</apex:page>

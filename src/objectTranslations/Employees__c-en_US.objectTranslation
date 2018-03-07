@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employees</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employees</value>
+    </caseValues>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emp_Name --></label>
+        <name>Emp_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee --></label>
+        <name>Employee__c</name>
+    </fields>
+    <fields>
+        <label><!-- city --></label>
+        <name>city__c</name>
+    </fields>
+    <fields>
+        <label><!-- deptno --></label>
+        <name>deptno__c</name>
+    </fields>
+    <fields>
+        <label><!-- salary --></label>
+        <name>salary__c</name>
+    </fields>
+    <fields>
+        <label><!-- salary sum --></label>
+        <name>salary_sum__c</name>
+    </fields>
+    <fields>
+        <label><!-- sample roll --></label>
+        <name>sample_roll__c</name>
+    </fields>
+    <layouts>
+        <layout>Employees Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,9 @@
+<apex:page sidebar="false" controller="DAtaforPicklist">
+    <apex:form >
+        Cource names:
+        <apex:selectList size="1">
+            <apex:selectOptions value="{!cnames}">
+            </apex:selectOptions>
+        </apex:selectList>
+    </apex:form>
+</apex:page>

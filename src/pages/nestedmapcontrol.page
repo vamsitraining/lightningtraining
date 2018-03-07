@@ -1,0 +1,60 @@
+<apex:page controller="NestedMapController" >
+    <apex:pageBlock id="results2">
+        <ul>
+            <apex:repeat value="{!ListofString1Entries}" var="i">
+                <li>outer key: {!i}</li>
+                    <ul>
+                        <apex:repeat value="{!ListofString2Entries}" var="j">
+                            <li>inner key: {!j}</li>
+                            <ul>
+                                <li>{!objectMap[i][j]}</li>
+                            </ul>
+                        </apex:repeat>
+                    </ul>
+            </apex:repeat>
+        </ul>
+    </apex:pageBlock>
+
+<apex:pageBlock id="results3">
+    <ul>
+        <apex:repeat value="{!objectMap}" var="outerKey">
+            <li>outer key: {!outerKey}</li>
+                <ul>
+                    <apex:repeat value="{!objectMap[outerKey]}" var="innerKey">
+                        <li>inner key: {!innerKey}</li>
+                        <ul>
+                            <li>{!objectMap[outerKey][innerKey]}</li>
+                        </ul>
+                    </apex:repeat>
+                </ul>
+        </apex:repeat>
+    </ul>
+</apex:pageBlock>
+
+    <apex:pageBlock mode="edit" id="results">
+      <apex:repeat value="{!ListofString1Entries}" var="i">
+        <div id="head" style ="height: 30px; background-color:#66CCFF;width:100%;text-align:center; font-size:20px;">{!i}</div>      
+            <apex:repeat value="{!ListofString2Entries}" var="j">
+                <div class="bold">{!j}</div>
+                   <apex:pageBlockTable value="{!objectMap[i][j]}" var="c"> 
+
+                     <apex:column style="width:10%">
+                        <apex:facet name="header">
+                           <apex:outputText value="Name" />
+                        </apex:facet>
+                        <apex:outputText value="{!c.Name}"/>
+                     </apex:column>
+                     <apex:column style="width:10%">
+                        <apex:facet name="header">
+                          <apex:outputText value="Division" />
+                        </apex:facet>
+                        <apex:outputText value="{!c.Division}"/>
+                     </apex:column>
+                   </apex:pageBlockTable>
+
+             </apex:repeat>
+         </apex:repeat>                
+   </apex:pageBlock>
+
+
+</apex:page>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quote</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quotes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sudha --></label>
+        <name>Sudha__c</name>
+        <picklistValues>
+            <masterLabel>sample Iteam 1</masterLabel>
+            <translation><!-- sample Iteam 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sample Iteam 2</masterLabel>
+            <translation><!-- sample Iteam 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sample Iteam 3</masterLabel>
+            <translation><!-- sample Iteam 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sample Iteam 4</masterLabel>
+            <translation><!-- sample Iteam 4 --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Quote Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

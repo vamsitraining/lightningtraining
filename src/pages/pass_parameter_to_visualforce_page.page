@@ -1,0 +1,7 @@
+<apex:page controller="passparamController">
+  <apex:form >
+     <apex:pageblock >
+          <apex:commandButton value="Call vf Page" action="{!callvfpage}"/>
+     </apex:pageblock>
+  </apex:form>
+</apex:page>

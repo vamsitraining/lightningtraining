@@ -1,0 +1,21 @@
+<apex:page sidebar="false" controller="CourseDataDelete">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+              <apex:pageBlockTable value="{!records}" var="R">
+                  <apex:column headerValue="Action">
+                    <apex:commandLink value="Delete" action="{!doDelete}">
+                        <apex:param name="RID" value="{!R.id}" assignTo="{!RID}"/>
+                    </apex:commandLink>
+                  </apex:column>
+                  <apex:column headerValue="Name">
+                      {!R.name}
+                  </apex:column>
+                  <apex:column headerValue="Fee">
+                      {!R.fee__c}
+                  </apex:column>
+              </apex:pageBlockTable>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

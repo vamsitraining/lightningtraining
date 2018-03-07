@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>document.getElementsByName(&apos;inlineEditSave&apos;)[0].onclick = function(){
+ if(accstatus.value==&apos;Locked&apos;){
+   var userchoice =confirm(&apos;Are you sure you want to lock the Account?&apos;);
+   if(userchoice){sfdcPage.save(); return userchoice;}
+   else{sfdcPage.revert(); return userchoice;}
+ }
+ else{sfdcPage.save(); return userchoice;}
+};</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

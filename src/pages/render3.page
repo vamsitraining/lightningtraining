@@ -1,0 +1,62 @@
+<apex:page controller="Sample" >
+<apex:form >
+
+<apex:pageblock id="pg" >
+    <apex:pageblockSection columns="1" title="PBS1" rendered="{!pbs1}"  >
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs1cb1}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs1cb2}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs1cb3}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>                
+    </apex:pageblockSection>              
+
+    <apex:pageblockSection columns="1" title="PBS2" rendered="{!pbs2}"  >
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs2cb1}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs2cb2}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs2cb3}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>                
+    </apex:pageblockSection>  
+
+    <apex:pageblockSection columns="1" title="PBS3" rendered="{!pbs3}"  >
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs3cb1}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs3cb2}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+            <apex:inputCheckbox value="{!pbs3cb3}">
+                <apex:actionSupport event="onchange" action="{!check}" reRender="pg"/>
+            </apex:inputCheckbox>        
+        </apex:pageblocksectionItem>                
+    </apex:pageblockSection>
+
+</apex:pageblock>
+
+</apex:form>
+</apex:page>

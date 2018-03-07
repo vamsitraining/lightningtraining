@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Volunteer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Volunteers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Volunteers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Interests --></label>
+        <name>Interests__c</name>
+        <picklistValues>
+            <masterLabel>Armed Forces Caseworker</masterLabel>
+            <translation><!-- Armed Forces Caseworker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BabySitting Course Instructor</masterLabel>
+            <translation><!-- BabySitting Course Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Donor</masterLabel>
+            <translation><!-- Blood Donor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Mobile Worker</masterLabel>
+            <translation><!-- Blood Mobile Worker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Board Member</masterLabel>
+            <translation><!-- Board Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clerical</masterLabel>
+            <translation><!-- Clerical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disaster Action Team</masterLabel>
+            <translation><!-- Disaster Action Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disaster Clerical</masterLabel>
+            <translation><!-- Disaster Clerical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disaster Services</masterLabel>
+            <translation><!-- Disaster Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elderly Escort Program</masterLabel>
+            <translation><!-- Elderly Escort Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Aid Team</masterLabel>
+            <translation><!-- First Aid Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friendly Visitor Program</masterLabel>
+            <translation><!-- Friendly Visitor Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grant Researching/Writing</masterLabel>
+            <translation><!-- Grant Researching/Writing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIV/AIDS Mentoring</masterLabel>
+            <translation><!-- HIV/AIDS Mentoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health and Safety Instructor</masterLabel>
+            <translation><!-- Health and Safety Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homeless shelter</masterLabel>
+            <translation><!-- Homeless shelter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Tracing/Services</masterLabel>
+            <translation><!-- International Tracing/Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internationl Humanitarian Law Instructor</masterLabel>
+            <translation><!-- Internationl Humanitarian Law Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lifeguard Instructor</masterLabel>
+            <translation><!-- Lifeguard Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance</masterLabel>
+            <translation><!-- Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motor Service Volunteer</masterLabel>
+            <translation><!-- Motor Service Volunteer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Networking / IT</masterLabel>
+            <translation><!-- Networking / IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office of Volunteers</masterLabel>
+            <translation><!-- Office of Volunteers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publicity aide</masterLabel>
+            <translation><!-- Publicity aide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speakers</masterLabel>
+            <translation><!-- Speakers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Projects</masterLabel>
+            <translation><!-- Special Projects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water Safety Instructor</masterLabel>
+            <translation><!-- Water Safety Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth Group Liaison</masterLabel>
+            <translation><!-- Youth Group Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth Team Leader</masterLabel>
+            <translation><!-- Youth Team Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth Volunteers/Programs</masterLabel>
+            <translation><!-- Youth Volunteers/Programs --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Region/Location --></label>
+        <name>Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Skills --></label>
+        <name>Skills__c</name>
+        <picklistValues>
+            <masterLabel>Call Center Experience</masterLabel>
+            <translation><!-- Call Center Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carpentry</masterLabel>
+            <translation><!-- Carpentry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child Care</masterLabel>
+            <translation><!-- Child Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coaching/Mentoring</masterLabel>
+            <translation><!-- Coaching/Mentoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Entry</masterLabel>
+            <translation><!-- Data Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elderly Care</masterLabel>
+            <translation><!-- Elderly Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Aid</masterLabel>
+            <translation><!-- First Aid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food Service</masterLabel>
+            <translation><!-- Food Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mechanical</masterLabel>
+            <translation><!-- Mechanical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi-language</masterLabel>
+            <translation><!-- Multi-language --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Networking / IT</masterLabel>
+            <translation><!-- Networking / IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physical Therapy</masterLabel>
+            <translation><!-- Physical Therapy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Management</masterLabel>
+            <translation><!-- Project Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Design</masterLabel>
+            <translation><!-- Web Design --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Volunteers --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Volunteer Layout</layout>
+        <sections>
+            <label><!-- Volunteer --></label>
+            <section>Volunteer</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

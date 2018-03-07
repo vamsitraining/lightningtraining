@@ -1,0 +1,19 @@
+<apex:page >
+  
+<html>
+<head>
+ 
+<script language="javascript" type="text/javascript">
+ 
+function popup() {
+window.open('http://www.theonlytutorials.com','name','height=500,width=600');
+}
+</script>
+ 
+</head>
+<body>
+<a href="#" onclick="popup()">Open Popup</a>
+</body>
+</html>
+
+</apex:page>

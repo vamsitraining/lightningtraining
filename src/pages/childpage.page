@@ -1,0 +1,22 @@
+<apex:page standardController="contact">
+    <html>
+        <head>
+        </head>
+        <body>
+            <SCRIPT LANGUAGE="JavaScript">
+                function sendValue (s){
+                    var selvalue = s.value;
+                    alert(window.opener);
+                    window.opener.document.getElementById('details').value = selvalue;
+                    window.close();
+                }
+            </script>
+        
+            <form name="selectform">
+                <input name="details" value="123456"/>
+                <input type="button" value="Copy input to parent opener" onClick="sendValue(this.form.details);" />
+            </form>
+         
+        </body>
+    </html>
+</apex:page>

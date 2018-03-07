@@ -1,0 +1,10 @@
+<apex:page controller="tt">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!wrapper}" var="wrap">
+                <apex:column headerValue="Account Name" value="{!wrap.accRec.Name}"/>
+                <apex:column headerValue="Contact Name" value="{!wrap.conRec.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

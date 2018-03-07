@@ -1,0 +1,7 @@
+<apex:page controller="customcontroller2">
+   The employee name is {!EmployeeName}<br/>
+   The employee name is {!EmployeeName2}<br/>
+   The employee name is {!EmployeeName3}
+   <!--{!$CurrentPage.parameters.EN}
+   <apex:detail subject="{!$CurrentPage.parameters.EN}"/>-->
+</apex:page>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Date__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Event_Type__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Event_Description__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Hours__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.City__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.State__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Volunteers__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>SFDC_Volunteer_Event__c.Total_Hours_Volunteered__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Spots_Remaining__c</field>
+    </columns>
+    <description>List of all Open Volunteer Events</description>
+    <filter>
+        <criteriaItems>
+            <column>SFDC_Volunteer_Event__c.Active__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>All Active Volunteer Events</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SFDC_Volunteer_Event__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SFDC_Volunteer_Event__c.Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

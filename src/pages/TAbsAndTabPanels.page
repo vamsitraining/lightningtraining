@@ -1,0 +1,40 @@
+<apex:page sidebar="false" controller="TabPanels">
+  <apex:form >
+      <apex:tabpanel >
+          <apex:tab label="Student">
+              <apex:pageBlock >
+                  <apex:pageBlockSection >
+                      <apex:pageBlockTable value="{!stdRecords}" var="std">
+                          <apex:column headervalue="Name">
+                              {!std.Name}
+                          </apex:column>
+                      </apex:pageBlockTable>
+                  </apex:pageBlockSection>
+              </apex:pageBlock>
+          </apex:tab>
+          <apex:tab label="Employee">
+              <apex:pageBlock >
+                  <apex:pageBlockSection >
+                      <apex:pageBlockTable value="{!empRecords}" var="emp">
+                          <apex:column headervalue="Name">
+                              {!emp.Name}
+                          </apex:column>
+                      </apex:pageBlockTable>
+                  </apex:pageBlockSection>
+              </apex:pageBlock>
+          </apex:tab>
+          <apex:tab label="Department">
+              <apex:pageMessages ></apex:pageMessages>
+              <apex:pageBlock >
+                  <apex:pageBlockSection >
+                      <apex:pageBlockTable value="{!deptRecords}" var="dept">
+                          <apex:column headervalue="Name">
+                              {!dept.Name}
+                          </apex:column>
+                      </apex:pageBlockTable>
+                  </apex:pageBlockSection>
+              </apex:pageBlock>
+          </apex:tab>
+      </apex:tabpanel>
+  </apex:form>
+</apex:page>

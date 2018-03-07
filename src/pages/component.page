@@ -1,0 +1,8 @@
+<apex:page >    <br/>
+
+   
+<div style="width:200px;height:100px;border:2px dashed blue;">
+<c:mycomponent myValue="My component's value" borderColor="red" />
+</div>
+
+</apex:page>

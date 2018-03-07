@@ -1,0 +1,20 @@
+<apex:page controller="PopupTest1">
+ <apex:pageBlock >
+        <apex:pageBlockSection columns="4" >
+           <apex:repeat var="a" value="{!accounts}" >
+             <!--  <c:Oppsummarypanel headerimage="{!a.Image__c}" header="{!a.Name_of_Link__c}" headerlink="{!a.Link__c}" />-->
+                             <a href="/{!a.Id}" id="{!a.Id}" onblur="LookupHoverDetail.getHover('{!a.Id}').hide();" onfocus="LookupHoverDetail.getHover('{!a.Id}', '/{!a.Id}/m?retURL=%2F{!a.Id}&isAjaxRequest=1').show();" onmouseout="LookupHoverDetail.getHover('{!a.Id}').hide();" onmouseover="LookupHoverDetail.getHover('{!a.Id}', '/{!a.Id}/m?retURL=%2F{!a.Id}&isAjaxRequest=1').show();">{!a.Name}</a> 
+           </apex:repeat>
+        </apex:pageblocksection>
+        
+        <apex:pageblockButtons >
+            <apex:form >
+                <apex:commandButton value="Save" style="margin-left:150px"/> 
+                <apex:commandbutton value="cancel"/> 
+            </apex:form>    
+        </apex:pageblockButtons>   
+
+    </apex:pageBlock>
+        
+      
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page sidebar="false" controller="DisplayRecClass">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+              <apex:pageBlockTable value="{!records}" var="r">
+                  <apex:column headerValue="Name">
+                      {!r.Name}
+                  </apex:column>
+              </apex:pageBlockTable>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

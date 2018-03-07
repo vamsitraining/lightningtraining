@@ -1,0 +1,13 @@
+<apex:page >
+<apex:form >
+<apex:commandButton value="Find" action="{!find}" reRender="SearchList" status="SearchStatus"/>
+
+  <apex:actionstatus id="SearchStatus">
+    <apex:facet name="start">
+    <c:enhancedactionstatus BackColor="#efefef" borderColor="#336699" borderSize="3" height="50px" width="120px" Message="Loading..." messageStyle="color:darkred;
+font-size:11pt;font-weight:
+bold;"/>
+    </apex:facet>
+  </apex:actionstatus>
+  </apex:form>
+</apex:page>

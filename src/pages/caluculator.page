@@ -1,0 +1,183 @@
+<apex:page SIdebar="false" showHeader="false">
+  <script>
+function one()
+{
+document.getElementById('page:fid:txt').value+='1' ;
+}
+function two()
+{
+document.getElementById('page:fid:txt').value+='2';
+}
+function three()
+{
+document.getElementById('page:fid:txt').value+='3';
+}
+
+function plus()
+{
+document.getElementById('page:fid:txt').value+='+';
+}
+function equal()
+{
+document.getElementById('page:fid:txt').value=eval(document.getElementById('page:fid:txt').value);
+//alert('hai');
+}
+function four()
+{
+document.getElementById('page:fid:txt').value+='4';
+}
+function five()
+{
+document.getElementById('page:fid:txt').value+='5';
+}
+function six()
+{
+document.getElementById('page:fid:txt').value+='6';
+}
+function minus()
+{
+document.getElementById('page:fid:txt').value+='-';
+}
+function anji()
+{
+document.getElementById('page:fid:txt').value+='1/x';
+}
+function seven()
+{
+document.getElementById('page:fid:txt').value+='7';
+}
+function eight()
+{
+document.getElementById('page:fid:txt').value+='8';
+}
+function nine()
+{
+document.getElementById('page:fid:txt').value+='9';
+}
+function mul()
+{
+document.getElementById('page:fid:txt').value+='*';
+}
+function div()
+{
+document.getElementById('page:fid:txt').value+='%';
+}
+function zero()
+{
+document.getElementById('page:fid:txt').value+='0';
+}
+function sqrt()
+{
+document.getElementById('page:fid:txt').value+='sqrt';
+}
+function divi()
+{
+document.getElementById('page:fid:txt').value+='/';
+}
+function ps()
+{
+document.getElementById('page:fid:txt').value+='+/-';
+}
+function dot()
+{
+document.getElementById('page:fid:txt').value+='.';
+}
+function backspace()
+{
+document.getElementById('page:form:txt').value=document.getElementById('page:form:txt').value.substring( 0,document.getElementById('page:form:txt').value.length-1 );
+}
+</script>
+<apex:form id="fid" >
+<div align="center" >
+<table width="100%" border="10" bordercolor="green" >
+
+<thead>
+<tr>
+<td>
+<apex:outputlabel style="color:orange;font-size:30px;font-family:impact">calculator
+</apex:outputlabel>
+</td>
+</tr>
+<tr>
+<td>
+<apex:selectlist size="1">
+<apex:selectoption itemvalue="1" itemlabel="Edit"/>
+<apex:selectoption itemvalue="2" itemlabel="copy"/>
+<apex:selectoption itemvalue="3" itemlabel="paste"/>
+</apex:selectlist>
+<apex:selectlist size="1">
+<apex:selectoption itemvalue="1" itemlabel="viwe"/>
+<apex:selectoption itemvalue="2" itemlabel="standard"/>
+<apex:selectoption itemvalue="3" itemlabel="scientific"/>
+<apex:selectoption itemvalue="4" itemlabel="Digit grouping"/>
+</apex:selectlist>
+<apex:selectlist size="1">
+<apex:selectoption itemvalue="1" itemlabel="help"/>
+<apex:selectoption itemvalue="2" itemlabel="topic help"/>
+<apex:selectoption itemvalue="3" itemlabel="about calsi"/>
+</apex:selectlist>
+</td>
+</tr>
+<tr>
+<td >
+<apex:inputtext id="txt" style="width:290px"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<apex:commandButton value="Backspace" style="width:70px;hight:70px" onclick="backspace()" reRender="form"/>
+<apex:commandButton value="CE" style="width:50px;hight:50px"/>
+<apex:commandButton value="C" style="width:45px;hight:45x"/>
+<apex:commandButton value="" style="width:60px;hight:60px"/>
+<apex:commandButton value="sfdc" style="width:60px;hight:60px"/>
+</td>
+</tr>
+<tr>
+<td>
+<apex:commandButton value="MC" style="width:40px;hight:40px"/>
+<apex:commandButton value="1" style="width:50px;hignt:50px" onclick="return one();" reRender="form"/>&nbsp;
+<apex:commandButton value="2" style="width:50px;hight:50px" onclick="two()" reRender="form"/>&nbsp;
+<apex:commandButton value="3" style="width:50px;hight:50px" onclick="three()" reRender="form"/>&nbsp;
+<apex:commandButton value="+" style="width:40px;hignt:40px" onclick="plus()" reRender="form"/>&nbsp;
+<apex:commandButton value="=" style="width:40px;hight:40px" onclick="return equal()" reRender="from"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<apex:commandButton value="MR" style="width:40px;hight:40"/>
+<apex:commandButton value="4" style="width:50px;hight:50px" onclick="four()" reRender="form"/>&nbsp;
+<apex:commandButton value="5" style="width:50px;hight:50px" onclick="five()" reRender="form"/>&nbsp;
+<apex:commandButton value="6" style="width:50px;hight:50px" onclick="six()" reRender="form"/>&nbsp;
+<apex:commandButton value="-" style="width:40px;hight:40px" onclick="minus()" reRender="form"/>&nbsp;
+<apex:commandButton value="1/x" style="width:40px;hight:40px" onclick="anji()" reRender="form"/>
+</td>
+</tr>
+<tr>
+<td>
+<apex:commandButton value="MS" style="width:40px;hight=40px"/>
+<apex:commandButton value="7" style="width:50px;hight:50px" onclick="seven()" reRender="form"/>
+<apex:commandButton value="8" style="width:50px; hight:50px" onclick="eight()" reRender="form"/>
+<apex:commandButton value="9" style="width:50px;hight:50px" onclick="nine()" reRender="form"/>
+<apex:commandButton value="*" style="width:50px;hight:50px" onclick="mul()" reRender="form"/>
+<apex:commandButton value="%" style="width:45px; hight:40px" onclick="div()" reRender="form"/>
+</td>
+</tr>
+<tr>
+<td>
+<apex:commandButton value="ctrla" style="width:40px;hight=40px"/>
+<apex:commandButton value="0" style="width:50px;hight:50px" onclick="zero()" reRender="form"/>
+<apex:commandButton value="sqrt" style="width:50px;hight:50px" onclick="sqrt()" reRender="form"/>
+<apex:commandButton value="/" style="width:40px;hight:40px" onclick="divi()" reRender="form"/>
+<apex:commandButton value="+/-" style="width:50px;hight:50px" onclick="ps()" reRender="form"/>
+<apex:commandButton value="." style="width:50px;hight:50px" onclick="dot()" reRender="form"/>
+</td>
+</tr>
+
+</thead>
+</table>
+</div>
+</apex:form>
+
+</apex:page>

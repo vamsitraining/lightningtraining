@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Add licence  To User {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Add licence  To User</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Add_Permission_Set</name>
+        <label>Add Permission Set</label>
+        <locationX>378</locationX>
+        <locationY>193</locationY>
+        <inputAssignments>
+            <field>PackageLicenseId</field>
+            <value>
+                <stringValue>050i00000008yVA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UserId</field>
+            <value>
+                <elementReference>USERID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>UserPackageLicense</object>
+    </recordCreates>
+    <startElementReference>Add_Permission_Set</startElementReference>
+    <variables>
+        <name>USERID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,19 @@
+<apex:page extensions="MassLogACallController_Contacts" standardcontroller="Account">
+    <apex:form >
+        <apex:pageblock id="Customlist" title="Contacts ">
+            <apex:pageblockbuttons >
+                <apex:commandbutton action="{!CreateCall}" value="Create Call">
+                <apex:commandbutton action="{!cancel}" value="Cancel">
+            </apex:commandbutton></apex:commandbutton></apex:pageblockbuttons>
+             
+            <apex:pageblocktable value="{!lstContacts}" var="lst">
+                <apex:column >
+                    <apex:inputfield value="{!lst.log_a_call__c}">
+                </apex:inputfield></apex:column> 
+                <apex:column headervalue="Contact Name">
+                    <apex:outputfield value="{!lst.Name}">
+                </apex:outputfield></apex:column>
+            </apex:pageblocktable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

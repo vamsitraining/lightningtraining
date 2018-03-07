@@ -1,0 +1,14 @@
+<!--- A timer that sends an AJAX update request to the server according to a time interval that you specify. The update request can then
+  result in a full or partial page update. You should avoid using this component with enhanced lists.
+
+interval  -  The time interval between AJAX update requests, in seconds. This value must be 5 seconds or greater, and if not specified, 
+defaults to 60 seconds. Note that the interval is only the amount of time between update requests. 
+Once an update request is sent to the server, it enters a queue and can take additional time to process and display on the client.  -->
+
+
+<apex:page controller="ActionPollarController">
+    <apex:form >
+        <apex:outputText value="Watch this counter: {!count}" id="counter"/>
+        <apex:actionPoller action="{!incrementCounter}" rerender="counter" interval="5"/>
+    </apex:form>
+</apex:page>

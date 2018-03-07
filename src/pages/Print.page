@@ -1,0 +1,18 @@
+<apex:page controller="bhadraPieChartController" title="Pie Chart" showHeader="false">
+<script>
+   //this is only the code for printing the page
+    function fun(){
+           document.getElementById('prnBtn').style.display='none'; 
+           //document.getElementById('winBtn').style.display='none';    
+           window.print();
+            document.getElementById('prnBtn').style.display='block'; 
+    }
+</script>
+<apex:form >
+  <div  style="padding-left: 484px;padding-top: 27px;"><input type="button"   onClick="fun();" id="prnBtn"  value="Print This Page" style="background: green;"/></div>
+</apex:form>
+    <apex:chart height="350" width="450" data="{!pieData}">
+        <apex:pieSeries dataField="data" labelField="name"/>
+        <apex:legend position="right"/>
+    </apex:chart>
+</apex:page>

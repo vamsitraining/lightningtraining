@@ -1,0 +1,23 @@
+<apex:page standardController="TrainingTest__c" recordsetvar="records" extensions="PaginationClass">
+    <c:component1 ></c:component1><br/>
+    <apex:form >
+  
+        <apex:pageblock >
+            <apex:pageblocksection >
+        <apex:pageblocktable value="{!records}" var="r"> 
+        <apex:column headervalue="Name">
+        <apex:outputtext value="{!r.Name}"/>
+                    </apex:column>
+                    <apex:column headervalue="City">
+            <apex:outputtext value="{!r.City__c}"/>
+                    </apex:column>
+                <apex:column headervalue="Country">
+                <apex:outputtext value="{!r.Country__c}"/>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+            <apex:commandLink value="Previous" action="{!previous}"/> |&nbsp;
+             <apex:commandLink value="Next" action="{!next}"/>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<apex:page >
+  <!-- allows you to change the privacy option of your opportunity -->
+<form id="j_id0:changePrivacyForm" name="j_id0:changeStatusForm" method="post"
+    action="/apex/sandbox" enctype="application/x-www-form-urlencoded">
+    <!-- opening div tags -->
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="pbTitle"> </td>
+            <td id="j_id0:changePrivacyForm:j_id1:j_id29" class="pbButton">
+                <input type="submit"
+                    name="j_id0:changePrivacyForm:j_id1:j_id29:j_id30"
+                    value="Save" class="btn"/>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="pbBody">
+        <table class="list" border="0" cellpadding="0" cellspacing="0">
+            <colgroup span="3"/>
+            <thead>
+                <tr class="headerRow ">
+                    <th class="headerRow  " scope="col">Opportunity Name</th>
+                    <th class="headerRow " scope="col">Account Name</th>
+                    <th class="headerRow  " scope="col">Privacy?</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr class="dataRow even  first ">
+                    <td class="dataCell"><span>Burlington Textiles Weaving Plant Generator</span></td>
+                    <td class="dataCell"><span>Burlington Textiles Corp of America</span></td>
+                    <td class="dataCell"><input type="checkbox" name="j_id0:changePrivacyForm:j_id1:j_id31:0:j_id35" checked="checked" /></td>
+                </tr>
+                
+                <tr class="dataRow odd last ">
+                    <td class="dataCell"><span>Edge Emergency Generator</span></td>
+                    <td class="dataCell"><span>Edge Communications</span></td>
+                    <td class="dataCell"><input type="checkbox" name="j_id0:changePrivacyForm:j_id1:j_id31:0:j_id35" checked="checked" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- closing div tags -->
+</form></apex:page>

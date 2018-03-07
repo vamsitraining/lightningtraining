@@ -1,0 +1,36 @@
+<apex:page controller="columnclasses">
+<style>
+.red{
+background-color:red;
+}
+.blue{
+background-color:blue;
+}
+.green{
+background-color:green; 
+}
+</style> 
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:pageblocktable value="{!records}" var="r" columnclasses="red,blue,green">
+<apex:column headervalue="Name">
+<apex:outputtext value="{!r.Name}"/>
+</apex:column>
+<apex:column headervalue="PersonName">
+<apex:outputtext value="{!r.personname__c}"/>
+</apex:column>
+<apex:column headervalue="City">
+<apex:outputtext value="{!r.city__c}"/>
+</apex:column>
+<apex:column headervalue="Country">
+<apex:outputtext value="{!r.Country__c}"/>
+</apex:column>
+<apex:column headervalue="Phone">
+<apex:outputtext value="{!r.Phone__c}"/>
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

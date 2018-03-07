@@ -1,0 +1,22 @@
+<apex:page id="myPage" controller="passingtopopup7">
+    <script>
+        function CloseWindow(){
+            var winMain=window.opener;
+            if (null==winMain){
+                winMain=window.parent.opener;
+            }
+            winMain.closePopup();
+        }
+    </script>
+    <apex:form id="myForm">
+        <br/>
+    
+    First<apex:inputtext id="inpEmployeeName" value="{!EmployeeName}"/><br/>
+   Second<apex:inputtext id="inpEmployeeName2" value="{!EmployeeName2}"/><br/>
+   Second<apex:inputtext id="inpEmployeeName3" value="{!EmployeeName3}"/><br/>
+    
+   <apex:commandbutton action="{!next}" onclick="CloseWindow();return false;" value="Close Popup">
+    </apex:commandbutton> 
+    
+    </apex:form>
+</apex:page>

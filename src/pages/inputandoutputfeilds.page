@@ -1,0 +1,25 @@
+<apex:page standardController="Employees__c">
+     <apex:form >
+         <apex:pageBlock >
+             <apex:pageBlockSection columns="1">
+                 <apex:inputfield value="{!Employees__c.Emp_Name__c}"/>
+                 <apex:inputfield value="{!Employees__c.Employee__c}"/>
+                 <apex:inputfield value="{!Employees__c.city__c}"/>
+                 <apex:inputfield value="{!Employees__c.Country__c}"/>
+                 <apex:inputfield value="{!Employees__c.deptno__c}"/>
+                 <apex:inputfield value="{!Employees__c.salary__c}"/>
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+         
+         <apex:pageBlock >
+             <apex:pageBlockSection columns="1">
+                 <apex:outputfield value="{!Employees__c.Emp_Name__c}"/>
+                 <apex:outputfield value="{!Employees__c.Employee__c}"/>
+                 <apex:outputfield value="{!Employees__c.city__c}"/>
+                 <apex:outputfield value="{!Employees__c.Country__c}"/>
+                 <apex:outputfield value="{!Employees__c.deptno__c}"/>
+                 <apex:outputfield value="{!Employees__c.salary__c}"/>
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+     </apex:form>
+</apex:page>

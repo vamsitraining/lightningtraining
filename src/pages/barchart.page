@@ -1,0 +1,7 @@
+<apex:page controller="JobProfilesCreatedLastweek" showHeader="false">
+    <apex:chart data="{!data}" width="400" height="300">
+        <apex:axis type="Numeric" position="left" fields="Jobprofiles" title="Amount"/>
+        <apex:axis type="Category" position="bottom" fields="Creator" title="Creator"/>
+    <apex:barSeries orientation="vertical" axis="bottom"  xField="Jobprofiles" yField="Jobprofiles" stacked="true"/>
+    </apex:chart>
+</apex:page>

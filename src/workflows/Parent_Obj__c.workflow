@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>UpdateRating</fullName>
+        <field>Rating__c</field>
+        <name>UpdateRating</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>UpdateRating</fullName>
+        <actions>
+            <name>UpdateRating</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Parent_Obj__c.NoOfYears__c</field>
+            <operation>equals</operation>
+            <value>5</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Parent_Obj__c.TotalAmountPaid__c</field>
+            <operation>equals</operation>
+            <value>5000</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

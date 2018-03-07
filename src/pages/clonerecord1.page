@@ -1,0 +1,15 @@
+<apex:page controller="Sample1" sidebar="false">
+
+<apex:form >
+    <apex:pageblock >
+        <apex:pageblockSection >
+            <apex:pageblockSectionItem >Enter the Account Id:</apex:pageblockSectionItem>
+            <apex:pageblockSectionItem ><apex:inputtext value="{!idOfRec}" /></apex:pageblockSectionItem>            
+        </apex:pageblockSection>
+        <apex:pageblockButtons >
+            <apex:commandButton value="Clone" action="{!cloneRec}"/>
+        </apex:pageblockButtons>
+    </apex:pageblock>   
+</apex:form>
+
+</apex:page>

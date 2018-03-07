@@ -1,0 +1,41 @@
+<apex:page controller="picklistvalueselection"> 
+<apex:form >  
+Name: 
+<apex:selectList size="1" multiselect="false" value="{!rName}" onchange="populate()" >
+<apex:selectoptions value="{!names}">  
+</apex:selectoptions>
+</apex:selectList>
+
+<apex:actionFunction name="populate" action="{!populateData}">
+</apex:actionFunction>
+<apex:outputpanel >  
+<table>
+<tr>
+<td>
+City  
+</td>
+<td>
+<apex:inputtext value="{!dcity}"/>
+</td>
+</tr>
+<tr>
+<td>
+Country 
+</td>
+<td>
+<apex:inputtext value="{!dcountry}"/>
+</td>
+</tr>
+<tr>
+<td>
+Phone
+</td>
+<td>
+<apex:inputtext value="{!dph}"/>
+</td>
+</tr>
+</table>
+</apex:outputpanel>
+
+   </apex:form>
+</apex:page>

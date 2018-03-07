@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Event_Type__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Date__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Dates_Flexible__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.City__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.Street__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Event__c.State__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Participant__c.Contact__c</field>
+    </columns>
+    <columns>
+        <field>SFDC_Volunteer_Participant__c.User__c</field>
+    </columns>
+    <description>List of all Volunteer Events and Event Participants</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>All Events and Event Participants</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$SFDC_Volunteer_Event__c$SFDC_Volunteer_Participant__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SFDC_Volunteer_Event__c.Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

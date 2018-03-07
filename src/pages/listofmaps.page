@@ -1,0 +1,16 @@
+<apex:page controller="ListsMapsController">
+    <apex:outputPanel id="box" layout="block">
+        <apex:pageMessages />
+        <apex:form >
+
+            <apex:repeat value="{!inputFields}" var="fieldKey">
+                <apex:outputText value="{!fieldKey}"/>: 
+                <apex:inputText value="{!inputFields[fieldKey]}"/><br/>
+            </apex:repeat>
+
+            <apex:commandButton action="{!submitFieldData}" 
+                value="Submit" id="button" rerender="box"/>
+
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

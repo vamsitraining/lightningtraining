@@ -1,0 +1,19 @@
+<apex:page controller="ValidationFormPageController" tabStyle="Account">
+<apex:sectionHeader title="Validation Test Page"></apex:sectionHeader>
+<apex:form >
+<apex:pageBlock title="" id="pageBlock">
+<apex:pageBlockButtons location="top">
+<apex:outputLabel value="Options: " for="chooseView"></apex:outputLabel>
+<apex:selectList id="chooseView" value="{!selectedValue}" size="1">
+<apex:selectOption itemValue="Value1" itemLabel="Label Value 1"></apex:selectOption>
+<apex:selectOption itemValue="Value2" itemLabel="Label Value 2"></apex:selectOption>
+<apex:selectOption itemValue="Value3" itemLabel="Label Value 3"></apex:selectOption>
+</apex:selectList><br/>
+<apex:outputLabel value="Comments: " for="theTextArea"></apex:outputLabel>
+<apex:inputTextarea id="theTextArea" value="{!inputTextValue}" style="{!textAreaStyle}" ></apex:inputTextarea><br/><br/>
+<apex:commandButton value="Run" action="{!Run}" id="theButton" rerender="pageBlock"></apex:commandButton>
+</apex:pageBlockButtons>
+<apex:pageMessages ></apex:pageMessages>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

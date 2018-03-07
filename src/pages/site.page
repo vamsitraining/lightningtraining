@@ -1,0 +1,13 @@
+<apex:page sidebar="false" controller="RegistrationClass">
+    <apex:form >
+        <apex:pageblock >
+            <apex:pageblocksection columns="1"> 
+                <apex:inputField value="{!objR.PersonName__c}"/> 
+                <apex:inputField value="{!objR.City__c}"/>
+                <apex:inputField value="{!objR.Country__c}"/>
+                <apex:inputField value="{!objR.ContactNo__c}"/>
+            </apex:pageblocksection>
+            <apex:commandButton value="Save" action="{!doSave}" />
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

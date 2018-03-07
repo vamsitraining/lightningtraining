@@ -1,0 +1,7 @@
+<!--  URL:http://sfdc.arrowpointe.com/2010/02/16/endpoint-for-debugging-http-callouts/    -->
+
+<apex:page controller="Endpoint_Controller" cache="false" showHeader="false" sidebar="false" action="{!init}">
+<pre>
+<apex:outputText escape="false" value="{!debugInfo}"></apex:outputText>
+</pre>
+</apex:page>

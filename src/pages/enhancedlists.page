@@ -1,0 +1,5 @@
+<apex:page sidebar="false">
+    <apex:enhancedList type="Account" height="300"/>
+    <apex:enhancedList type="Contact" height="300"/>
+   
+</apex:page>

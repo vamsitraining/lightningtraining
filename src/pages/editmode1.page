@@ -1,0 +1,22 @@
+<apex:page standardcontroller="Account" extensions="inlineediting" showheader="false">
+<apex:form >
+<apex:pageBlock >
+<apex:outputPanel id="outpanel">
+<apex:pageblocksection columns="1">
+<apex:pageblocksectionItem >
+<apex:outputlabel value="Account Name" for="Accname" rendered="{!readonlymode}">
+<apex:actionSupport event="ondblclick" action="{!inlineedit}" rerender="outpanel"/>
+</apex:outputlabel>
+<apex:outputtext value="{!Account.Name}" rendered="{!readonlymode}" id="Accname">
+
+</apex:outputtext>
+</apex:pageblocksectionItem>          
+
+
+<apex:inputfield value="{!Account.Name}" rendered="{!editmode}"/>
+
+</apex:pageblocksection>    
+</apex:outputPanel>
+</apex:pageBlock>
+</apex:form>         
+</apex:page>

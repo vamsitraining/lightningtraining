@@ -1,0 +1,25 @@
+<apex:page sidebar="false" controller="Insertclass">
+  <apex:form >
+  <div align="center">
+      <table>
+            <tr>    
+                <td> Name </td>
+                <td> <apex:inputtext value="{!tName}"/> </td>
+            </tr>
+            <tr>    
+                <td> City</td>
+                <td> <apex:inputtext value="{!tCity}"/> </td>
+            </tr>
+            <tr>    
+                <td> Country </td>
+                <td> <apex:inputtext value="{!tCountry}"/> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <apex:commandbutton value="Insert" action="{!doInsert}"/>
+                </td>
+            </tr>
+      </table>
+   </div>
+  </apex:form>
+</apex:page>

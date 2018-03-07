@@ -1,0 +1,7 @@
+<apex:page standardcontroller="opportunity" rendered="{!opportunity.stagename='advanced/writtenorder'}">
+<script type="text/javascript">
+{
+window.alert("please generate order !!");
+}
+</script>
+</apex:page>

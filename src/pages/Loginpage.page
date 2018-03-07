@@ -1,0 +1,12 @@
+<apex:page >
+    <apex:form >
+        <apex:outputLabel >
+            Username
+        </apex:outputLabel>
+        <apex:inputText />
+        <apex:outputLabel >Password</apex:outputLabel>
+        <apex:inputSecret />
+        <apex:commandButton value="Login" action="http://www.google.com"/>
+        <apex:commandLink value="Register"/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Batch</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Batch</value>
+    </caseValues>
+    <fields>
+        <label><!-- Batch Balance --></label>
+        <name>Batch_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Contact Person --></label>
+        <name>Batch_Contact_Person__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Contact Phone --></label>
+        <name>Batch_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Mail ID --></label>
+        <name>Group_Mail_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lab Timings --></label>
+        <name>Lab_Timings__c</name>
+        <picklistValues>
+            <masterLabel>1-2PM</masterLabel>
+            <translation><!-- 1-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10-11AM</masterLabel>
+            <translation><!-- 10-11AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11-12AM</masterLabel>
+            <translation><!-- 11-12AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-1PM</masterLabel>
+            <translation><!-- 12-1PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-4PM</masterLabel>
+            <translation><!-- 3-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-5PM</masterLabel>
+            <translation><!-- 4-5PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5-6PM</masterLabel>
+            <translation><!-- 5-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-7PM</masterLabel>
+            <translation><!-- 6-7PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7-8AM</masterLabel>
+            <translation><!-- 7-8AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7-8PM</masterLabel>
+            <translation><!-- 7-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8-9AM</masterLabel>
+            <translation><!-- 8-9AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8-9PM</masterLabel>
+            <translation><!-- 8-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9-10AM</masterLabel>
+            <translation><!-- 9-10AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Max Paid Studen --></label>
+        <name>Max_Paid_Studen__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Students Allowed --></label>
+        <name>Max_Students_Allowed__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Students --></label>
+        <name>No_of_Students__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session --></label>
+        <name>Session__c</name>
+        <picklistValues>
+            <masterLabel>Evening</masterLabel>
+            <translation><!-- Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation><!-- Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Noon</masterLabel>
+            <translation><!-- Noon --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Students Fee --></label>
+        <name>Students_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Students Fee paid --></label>
+        <name>Students_Fee_paid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timings --></label>
+        <name>Timings__c</name>
+        <picklistValues>
+            <masterLabel>1-2PM</masterLabel>
+            <translation><!-- 1-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-1PM</masterLabel>
+            <translation><!-- 12-1PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-7PM</masterLabel>
+            <translation><!-- 6-7PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7-8AM</masterLabel>
+            <translation><!-- 7-8AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7-8PM</masterLabel>
+            <translation><!-- 7-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8-9AM</masterLabel>
+            <translation><!-- 8-9AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8-9PM</masterLabel>
+            <translation><!-- 8-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9-10AM</masterLabel>
+            <translation><!-- 9-10AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Training --></label>
+        <name>Training__c</name>
+        <relationshipLabel><!-- Batch --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type of Batch --></label>
+        <name>Type_of_Batch__c</name>
+        <picklistValues>
+            <masterLabel>fast track</masterLabel>
+            <translation><!-- fast track --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>regular</masterLabel>
+            <translation><!-- regular --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

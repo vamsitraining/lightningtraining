@@ -1,0 +1,20 @@
+<apex:page controller="TestController">
+
+    <apex:pageBlock >
+
+        <apex:pageBlockTable value="{!accounts}" var="a">
+
+            <apex:column headerValue="Customer">
+                <apex:outputField value="{!a.Name}" />
+            </apex:column>
+
+            <apex:repeat value="{!products}" var="p">
+                <apex:column headerValue="{!p.Name}">
+                    <input type="text" />
+                </apex:column>
+            </apex:repeat>
+
+        </apex:pageBlockTable>
+
+    </apex:pageBlock>
+</apex:page>

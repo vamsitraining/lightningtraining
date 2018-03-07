@@ -1,0 +1,25 @@
+<apex:page standardController="Account">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+      var $j = jQuery.noConflict();
+      $j(document).ready(function() {
+          $j('.wrapperClass :hidden').change(function(e) {
+              alert('Hidden input was changed');
+          });
+      });  
+  </script>
+
+  <apex:form >
+      <apex:pageBlock >
+          <apex:inlineEditSupport >
+              <apex:pageBlockSection title="Account Fields">
+                  <apex:pageBlockSectionItem dataStyleClass="wrapperClass">
+                      <apex:outputLabel value="Account Name"/>
+                      <apex:outputField value="{!Account.Name}"/>
+                  </apex:pageBlockSectionItem>
+              </apex:pageBlockSection>
+          </apex:inlineEditSupport>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

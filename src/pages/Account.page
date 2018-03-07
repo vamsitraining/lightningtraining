@@ -1,0 +1,30 @@
+<apex:page controller="accountmethod" sidebar="false">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockTable value="{!acclist}" var="acc">
+<apex:column headerValue="Action" >
+<apex:commandLink value="Edit"/>/&nbsp;
+<apex:commandLink value="Delete" action="{!delrecord}">
+<apex:param value="{!acc.id}" name="accid"/>
+</apex:commandLink>
+/&nbsp;
+<apex:commandLink value="View"/>
+</apex:column>
+<apex:column headerValue="Account Name" >
+<apex:outputfield value="{!acc.Name}"/>
+</apex:column>
+<apex:column headerValue="Account Number" >
+<apex:outputfield value="{!acc.Accountnumber}"/>
+</apex:column>
+
+
+
+</apex:pageBlockTable>
+
+
+</apex:pageBlock>
+
+</apex:form>
+
+
+</apex:page>

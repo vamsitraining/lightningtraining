@@ -1,0 +1,46 @@
+<apex:page controller="Passingparameter">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons >
+            <apex:commandLink value="Generate PDF (new tab most likely)" action="/apex/pass_parameter_to_visualforce_page1"  immediate="true"
+                target="_blank" style="text-decoration:none" />
+            <a href="/apex/pass_parameter_to_visualforce_page1" class="btn" style="text-decoration:none" 
+                onclick="window.open(this.href, 'mywin', 'height=400,width=300'); return false;" >Pure HTML version, should be a popup</a>
+        </apex:pageBlockButtons>
+        
+        <!-- script for poup window -->
+            <script type="text/javascript">function newPopup(url) {popupWindow = window.open(/apex/pass_parameter_to_visualforce_page1,'popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')}</script>
+            <!-- end script for poup window -->
+            <apex:commandlink onclick="JavaScript&colon;newPopup('/apex/pass_parameter_to_visualforce_page1);" >Post Update
+            </apex:commandlink>
+            
+                   <apex:pageBlockSection >
+                          <!--   The employee name is <apex:outputtext value="{!EmployeeName}" id="name"/>
+                            <br/>
+                            The employee name is {!EmployeeName2}<br/>
+                            The employee name is {!EmployeeName3}<br/>-->
+                    
+                  
+                     <br/><label id="name1">The employee name is </label><label id="name1Val"></label> <br/>
+                    <label id="name2">The employee name is </label><label id="name2Val"></label> <br/>
+                    <label id="name3">The employee name is </label><label id="name3Val"></label> <br/>
+                      </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+ <script language="JavaScript" type="text/javascript">
+
+function updateValue(a,b,c)
+{
+    if(a){
+        document.getElementById('name1Val').innerHTML = a;
+    }
+    if(b){
+        document.getElementById('name2Val').innerHTML = b;
+    }   
+    if(c){
+        document.getElementById('name3Val').innerHTML = c;
+    }    
+}
+</script>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page controller="MapAccCont">
+    <apex:form >
+        <apex:repeat value="{!mapToAccount}" var="accNum">
+            <apex:inputField value="{!mapToAccount[accNum].Name}" />
+        </apex:repeat>
+    </apex:form>
+</apex:page>

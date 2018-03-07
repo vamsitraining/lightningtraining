@@ -1,0 +1,59 @@
+<apex:page showHeader="false" sidebar="false" standardController="Lead">
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=[get your key at http://code.google.com/apis/maps/signup.html]"></script>
+    <script type="text/javascript">
+        google.load("maps", "2.x");
+        
+        var addressPoint;
+        
+        // Call this function when the page has been loaded
+        function initialize() {
+            if (GBrowserIsCompatible()) {
+                var map = new google.maps.Map2(document.getElementById("map"));
+                map.addControl(new GSmallMapControl()); 
+                
+                var address = "{!Lead.Street}" + ", " + "{!Lead.City}" + ", " + "{!Lead.State}"+"{!Lead.PostalCode}" + "," + "{!Lead.Country}";
+
+                var geocoder = new GClientGeocoder();
+                geocoder.getLatLng(address, function(newPoint) {
+                    if (!newPoint) {
+                        $('#textAddress').html('Bummer! We couldn\'t find the location you have in the Address field. Try entering a new address and reloading the page...');
+                    } else {
+                        map.setCenter(newPoint, 14);
+                        map.addOverlay(new GMarker(newPoint)); 
+                        var marker = new GMarker(newPoint); 
+                        map.addOverlay(marker); 
+                        marker.openInfoWindowHtml("<div style=\"float:left;\"><div style=\"font-family: arial, san-serif; padding-left:30px;\"><span style=\"font-weight:bold;\">{!Lead.Name}</span><br/>{!Lead.Street}<br/>{!Lead.City}, {!Lead.State} {!Lead.PostalCode}<br/><br/></div></div>");
+                    }
+                });
+            }
+        }
+                
+        google.setOnLoadCallback(initialize);
+    </script> 
+     <style>
+        .locationGoogleMap {
+            color:#4A4A56;
+            font-family:arial,helvetica,sans-serif;
+            font-size:12px;
+            font-weight:bold;
+            left:24.3%;
+            position:relative;
+        }
+        
+        #textAddress {
+            color:#000000;
+            font-family:arial,helvetica,sans-serif;
+            font-size:18px;
+            height:20px;
+            left:40%;
+            position:relative;
+        }       
+    </style>
+    
+    <apex:outputpanel id="googleMap" layout="none">
+        <span id="textAddress"></span>
+            <div id="contentMap" style="width: 100%; position:relative; margin-top:10px;"> 
+                <div id="map" style="height: 300px;"></div>
+            </div>
+    </apex:outputpanel>
+</apex:page>

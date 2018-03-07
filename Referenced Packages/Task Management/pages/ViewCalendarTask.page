@@ -1,0 +1,60 @@
+<apex:page standardController="taskmanage1__CalendarTask__c" extensions="taskmanage1.ViewCalendarTaskController">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+            <table class="list" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr class="headerRow">
+                            <th scope="col" class="">Subject</th>
+                        <apex:outputText rendered="{!taskmanage1__CalendarTask__c.taskmanage1__Assignment_Type__c == 'Contact'}">               
+                            <th scope="col" class="">Name</th>                 
+                        </apex:outputText>
+                        <apex:outputText rendered="{!taskmanage1__CalendarTask__c.taskmanage1__Assignment_Type__c == 'Account'}"> 
+                            <th scope="col" class="">Related To</th>
+                        </apex:outputText>
+                            <th scope="col" class="">Start Date</th>
+                            <th scope="col" class="">End Date</th>
+                            <th scope="col" class="">Priority</th>
+                            <th scope="col" class="">Assigned To</th>
+                    </tr>
+                    <apex:repeat value="{!tasks}" var="item" rows="5" first="0">
+                        <tr class="dataRow odd first" onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" onmouseover="if (window.hiOn){hiOn(this);}">
+                                <td>
+                                    <apex:outputLink value="/{!item.Id}" target="_parent">
+                                        {!item.Subject}
+                                    </apex:outputLink>
+                                </td>
+                            <apex:outputText rendered="{!taskmanage1__CalendarTask__c.taskmanage1__Assignment_Type__c == 'Contact'}"> 
+                                <td>{!item.Who.Name}</td>
+                            </apex:outputText>
+                            <apex:outputText rendered="{!taskmanage1__CalendarTask__c.taskmanage1__Assignment_Type__c == 'Account'}">
+                                <td>{!item.What.Name}</td>
+                            </apex:outputText>
+                                <td>
+                                    <apex:outputText value="{0, Date, MM/dd/yyyy}">
+                                        <apex:param value="{!item.RecurrenceStartDateOnly}"/>
+                                    </apex:outputText>
+                                </td>
+                                <td>
+                                    <apex:outputText value="{0, Date, MM/dd/yyyy}">
+                                        <apex:param value="{!item.RecurrenceEndDateOnly}"/>
+                                    </apex:outputText>
+                                </td>
+                                <td>{!item.Priority}</td>
+                                <td>{!item.Owner.Name}</td>
+                        </tr>
+                    </apex:repeat>
+                    <apex:outputPanel rendered="{!tasks.size == 0}" >
+                        <tr>
+                            <td colspan="6">No Records to display</td>
+                        </tr>
+                    </apex:outputPanel>
+                </tbody>
+            </table>
+            <apex:outputPanel id="TaskListLink" layout="inline" style="line-height:24px" rendered="{!tasks.size > 5}">
+                <apex:outputLink target="_parent" value="/apex/ViewTasks?id={!taskmanage1__CalendarTask__c.Id}">
+                    Go to full list ({!tasks.size}) »
+                </apex:outputLink>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

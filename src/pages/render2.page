@@ -1,0 +1,28 @@
+<apex:page controller="mycontoller">
+<apex:form >
+<apex:pageblock >
+  <apex:pageBlockSection id="mainSection" columns="2" title="Main Section">
+
+            <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
+                <apex:selectOptions value="{!someList}"/>
+                <apex:actionSupport event="onchange" action="{!updateData}" reRender="mainSection"/>
+            </apex:selectList>
+
+           <apex:pageBlockSection id="section1" rendered="{!section1}" >
+           ..section data...
+           </apex:pageBlockSection>
+
+           <apex:pageBlockSection id="section2" rendered="{!section2}" >
+           ..section data...
+           </apex:pageBlockSection>
+
+   </apex:pageBlockSection>
+   
+   
+   </apex:pageblock>
+   
+   
+   </apex:form>
+   
+   
+   </apex:page>

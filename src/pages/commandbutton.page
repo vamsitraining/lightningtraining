@@ -1,0 +1,12 @@
+<apex:page >
+ <apex:form >
+ <apex:actionStatus id="mySaveStatus1">
+<apex:facet name="stop">
+<apex:commandButton value="Save Mappings" action="{!save}" rerender="dummy" status="mySaveStatus1"/>
+</apex:facet>
+<apex:facet name="start">
+<apex:commandButton value="Processing..." status="mySaveStatus1" disabled="true"/>
+</apex:facet>
+</apex:actionStatus>
+</apex:form>
+</apex:page>

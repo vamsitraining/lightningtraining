@@ -1,0 +1,11 @@
+<apex:page standardController="Contact" extensions="inputextension">
+<apex:form >
+<apex:pageblock title="Blog" mode="edit" >
+    <apex:pageBlockSection columns="1">
+      <apex:inputField value="{!Contact.name}"/>
+      <apex:inputField value="{!Contact.Email}"/>
+    </apex:pageBlockSection>
+  </apex:pageblock>
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

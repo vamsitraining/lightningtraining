@@ -1,0 +1,37 @@
+<apex:page controller="customcontroller1" id="pageId">
+<apex:form id="formId" >
+
+<script language="JavaScript" type="text/javascript">
+
+function CloseAndRefresh(){
+    //Varaible defination
+        var val1;
+        var val2;
+        var val3;
+    //Assign the values to the variables    
+        if(document.getElementById("pageId:formId:inpEmployeeName").value != null){ 
+            val1=document.getElementById("pageId:formId:inpEmployeeName").value;
+        }
+        if(document.getElementById("pageId:formId:inpEmployeeName2").value != null){ 
+            val2=document.getElementById("pageId:formId:inpEmployeeName2").value;
+        }
+        if(document.getElementById("pageId:formId:inpEmployeeName3").value !=null) {
+            val3=document.getElementById("pageId:formId:inpEmployeeName3").value;
+        }
+    //send the values     
+        window.opener.updateValue(val1,val2,val3);
+        window.close();
+}
+
+</script>
+
+   First<apex:inputtext id="inpEmployeeName" value="{!EmployeeName}"/><br/>
+   Second<apex:inputtext id="inpEmployeeName2" value="{!EmployeeName2}"/><br/>
+   Second<apex:inputtext id="inpEmployeeName3" value="{!EmployeeName3}"/><br/>
+ 
+   
+   <apex:commandLink value="Next"  id="cmdNext" action="{!next}" onclick="CloseAndRefresh();">  
+     </apex:commandLink>
+  <!-- <apex:outputLink value="/apex/page4">click<apex:param name="EN" value="{!EmployeeName}"/></apex:outputLink>-->
+</apex:form>
+</apex:page>

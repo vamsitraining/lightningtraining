@@ -1,0 +1,374 @@
+<apex:page controller="taskmanage1.GeneralizeAssignTaskController" sidebar="false" tabStyle="Generalize_Assign_Tasks__tab" id="thePage">
+    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.TaskResource, '/Task/TaskTemplate.css')}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.TaskResource, '/Task/jquery-1.4.2.min.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.TaskResource, '/Task/jquery.validate.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.TaskResource, '/Task/TaskTemplate.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.TaskResource, '/Task/AssignTask.js')}"></script>
+    <script src="/jslibrary/1329331264000/sfdc/Activity.js" type="text/javascript"></script>
+    <style type="text/css">
+        .dateFormat{
+            display:none;
+        }
+    </style>
+    <script>
+        function loadJs(){
+            var file = '/jslibrary/1329331264000/sfdc/Activity.js';
+            var head = $('head').remove('#loadScript');
+            $("<scri"+"pt>"+"</scr"+"ipt>").attr({src:file,type:'text/javascript',id:'load'}).appendTo(head);
+        }
+        jQuery(document).ready(function(){
+            pageBlockHeader();
+            loadClearTaskOwnerIds();
+            if('{!JSENCODE(AccountOrContactIds)}' != null && '{!JSENCODE(AccountOrContactIds)}' != '' && '{!JSENCODE(AccountOrContactIds)}' != '0')
+            {
+                loadSelected('{!JSENCODE(AccountOrContactIds)}');
+                loadUserAccountOwner();
+                loadUserAccountOwnerSecond();
+            }
+        });
+        function loadUserAccountOwnerSecond()
+        {
+           var count = 1;
+           <apex:repeat value="{!AccountOrContactOwner}" var="item">
+               var user = "accountUser" + count + " option[value='{!JSENCODE(item)}']";
+               var accountContact = "accountOwner" + count + " option[value='{!JSENCODE(item)}']";
+               try
+               {
+                   jQuery('.' + user).attr('selected', true);
+               }catch(err){}
+               try
+               {
+                   jQuery('.' + accountContact).attr('selected', true);
+               }catch(err){}
+               count ++;
+           </apex:repeat>
+        }
+    </script>
+    <apex:form id="theFormAffinity" styleClass="Affinity">
+        <apex:actionStatus id="loading" layout="block">         
+            <apex:facet name="start">
+                <div class="overlayBackground displayBG">
+                    <img src="/img/loading32.gif" id="loading" class="loadingImg"/>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:actionFunction name="taskType" status="loading" action="{!clearAccount}" reRender="masterCalendars" oncomplete="pageBlockHeader();loadJs();clearTaskOwnerIds();clearCalendarTask();" immediate="true">
+            <apex:param name="firstParam" assignTo="{!taskType}" value=""/>
+        </apex:actionFunction>
+        <apex:sectionHeader subtitle="Assign Tasks" title="Assign Tasks">
+            <apex:outputText value="View:" style="font-weight:bold;padding-right:.69em;"/>
+            <apex:selectList size="1" value="{!taskType}" onchange="taskType(this.value);" styleClass="taskType">
+                <apex:selectOptions value="{!taskTypes}" />
+            </apex:selectList>
+        </apex:sectionHeader>
+        <div style="margin:10px;"/>
+        <apex:outputpanel id="masterCalendars">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td width="55%" align="right" style="vertical-align:top;">
+                        <apex:pageBlock title="Filter Accounts" id="masterTask" rendered="{!taskType != 'Employee'}">
+                            <apex:pageBlockSection columns="2">
+                                <apex:pageblockSectionItem >
+                                    Account Name
+                                    <apex:inputText value="{!accountProxy.AccountName}" styleClass="custodian"/>
+                                </apex:pageblockSectionItem>
+                                <apex:inputField value="{!accountProxy.currentAccount.BillingCountry}"/>
+                                <apex:inputField value="{!accountProxy.currentAccount.ParentId}"/>
+                                <apex:inputField value="{!accountProxy.currentAccount.BillingCity}"/>
+                                <apex:pageBlockSectionItem >
+                                    Owner Alias
+                                    <apex:inputText value="{!accountProxy.OwnerAlias}"/>
+                                </apex:pageBlockSectionItem>
+                                <apex:inputField value="{!accountProxy.currentAccount.BillingState}"/>
+                                <apex:pageBlockSectionItem id="dateCheck">
+                                    <apex:outputText value="Created Date"/>
+                                    <apex:outputPanel >
+                                        <apex:inputField value="{!accountProxy.CreatedDateForm.ActivityDate}"/>
+                                        &nbsp;<apex:outputText value="To" style="color: #4A4A56;font-size: 91%;font-weight: bold;"/>&nbsp;
+                                        <apex:inputField value="{!accountProxy.CreatedDateTo.ActivityDate}"/>
+                                    </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                                <apex:inputField value="{!accountProxy.currentAccount.BillingPostalCode}"/>
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputText value="" />
+                                    <apex:outputText value="" />
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem dataStyle="text-align:left;padding-left:130px;">
+                                    <apex:outputText value="" />
+                                    <apex:commandButton value="Submit" action="{!accountProxy.submit}" reRender="selectedAccountNew,masterTask2" oncomplete="filterSubmit({!accountProxy.accountCount});clearTaskOwnerIds();loadJs();" status="loading"/>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:pageBlock>
+                        <apex:outputPanel id="selectedAccountNew">
+                            <apex:outputText rendered="{!accountProxy.accounts.size <= 0}">
+                                <apex:pageBlock title="Search Result">
+                                    <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                        <tr class="dataRow odd first">
+                                            <td align="left" style="color:gray;">No records to display.</td>
+                                        </tr>
+                                    </table>
+                                </apex:pageBlock>
+                            </apex:outputText>
+                            <apex:outputText rendered="{!accountProxy.accounts.size > 0}">
+                                <apex:pageBlock >
+                                    <apex:pageBlockButtons location="bottom" style="text-align:left;">
+                                        <apex:inputCheckbox styleClass="footerAccountCheckbox" value="{!RemindMeOneWeek}"/> Remind me 1 week prior to last task
+                                    </apex:pageBlockButtons>
+                                    <apex:outputText rendered="{!accountProxy.accounts.size >= 1000}">
+                                        <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                            <tr class="dataRow odd first">
+                                                <td align="left" style="color:red;">The search criteria resulted in too many records. Please redefine the criteria and try again.</td>
+                                            </tr>
+                                        </table>
+                                    </apex:outputText>
+                                    <div class="pbHeader pageBlockSelectAccount">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="pbTitle" style="text-align:left;">
+                                                        <h2 class="mainTitle">
+                                                            <apex:outputText value="Search Results" rendered="{!taskType != 'Employee'}" />
+                                                        </h2>
+                                                    </td>
+                                                    <td class="pbTitle" style="text-align:right;">
+                                                        <h2 class="mainTitle">
+                                                            <input type="radio" name="select" class="unselectAccountCheckbox" onclick="unselectAll();"/> Unselect All
+                                                            <input type="radio" name="select" class="headerAccountCheckbox" onclick="selectAll();"/> Select All
+                                                        </h2>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="duelingListBox" id="colselector" style="text-align:left;">
+                                        <table class="layout">
+                                            <tbody>
+                                                <tr>
+                                                    <apex:outputText >
+                                                        <td class="selectCell">
+                                                            <div class="selectTitle">
+                                                                <label for="colselector_select_0">
+                                                                    <apex:outputText rendered="{!taskType == 'Account'}">
+                                                                        Available Accounts
+                                                                    </apex:outputText>
+                                                                    <apex:outputText rendered="{!taskType == 'Contact'}">
+                                                                        Available Contacts
+                                                                    </apex:outputText>
+                                                                    <apex:outputText rendered="{!taskType == 'Employee'}">
+                                                                        Available Users
+                                                                    </apex:outputText>
+                                                                </label>
+                                                            </div>
+                                                            <apex:selectList size="12" multiselect="true" styleClass="selectCell selectAccountLeft" id="leftAccount" ondblclick="selectRight();" style="min-width:150px;width:150px;width:auto !important;*width:300px !important;">
+                                                                <apex:selectOptions value="{!accountProxy.accounts}" />
+                                                            </apex:selectList>
+                                                            <apex:selectList size="1" styleClass="selectAccountBackup" style="display:none">
+                                                                <apex:selectOptions value="{!accountProxy.accountOwners}" />
+                                                            </apex:selectList>
+                                                        </td>
+                                                        <td class="buttonCell">
+                                                            <div class="text">Add</div>
+                                                            <div class="text">
+                                                                <a href="javascript:selectRight();" id="selectRight">
+                                                                <img src="/s.gif" alt="Add" class="rightArrowIcon" title="Add" /></a>
+                                                            </div>
+                                                            <div class="text">
+                                                                <a href="javascript:selectLeft();" id="selectLeft">
+                                                                <img src="/s.gif" alt="Remove" class="leftArrowIcon" title="Remove" /></a>
+                                                            </div>
+                                                            <div class="duelingText">Remove</div>
+                                                        </td>
+                                                        <td class="selectCell">
+                                                            <div class="selectTitle">
+                                                                <label for="colselector_select_1">
+                                                                    <apex:outputText rendered="{!taskType == 'Account'}">
+                                                                        Selected Accounts
+                                                                    </apex:outputText>
+                                                                    <apex:outputText rendered="{!taskType == 'Contact'}">
+                                                                        Selected Contacts
+                                                                    </apex:outputText>
+                                                                    <apex:outputText rendered="{!taskType == 'Employee'}">
+                                                                        Selected Users
+                                                                    </apex:outputText>
+                                                                </label>
+                                                            </div>
+                                                            <apex:selectList size="12" multiselect="true" id="rightAccount" styleClass="selectAccountRight" ondblclick="selectLeft();" style="min-width:150px;width:150px;width:auto !important;*width:300px !important;">
+                                                                <apex:selectOptions value="{!accountProxy.selectedAccount}" />
+                                                            </apex:selectList>
+                                                        </td>
+                                                    </apex:outputText>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><br />
+                                                        <table id="dates" width="100%">
+                                                            <tr>
+                                                                <td width="19%">
+                                                                    <apex:outputLabel value="Start Date" styleClass="labelCol"/>
+                                                                </td>
+                                                                <td style="text-align:left">
+                                                                    <div class="requiredInput">
+                                                                        <div class="requiredBlock"></div>
+                                                                        <apex:inputField value="{!CalendarStartEndDate.taskmanage1__RecurrenceStartDate__c}" onChange="checkDate($(this))" styleClass="startDate"/>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <apex:outputLabel value="End Date" styleClass="labelCol"/>
+                                                                </td>
+                                                                <td style="text-align:left">
+                                                                    <div class="requiredInput">
+                                                                        <div class="requiredBlock"></div>
+                                                                        <apex:inputField value="{!CalendarStartEndDate.taskmanage1__RecurrenceEndDate__c}" onChange="checkDate($(this))" styleClass="endDate"/>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </apex:pageBlock>
+                            </apex:outputText>
+                        </apex:outputPanel>
+                    </td>
+                    <apex:outputText >
+                        <td>&nbsp;</td>
+                        <td style="vertical-align:top;">
+                            <apex:outputText rendered="{!MasterCalendars.size <= 0}">
+                                <apex:pageBlock title="Calendar Tasks">
+                                    <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                        <tr class="dataRow odd first">
+                                            <td align="left" style="color:gray;">No records to display.</td>
+                                        </tr>
+                                    </table>
+                                </apex:pageBlock>
+                            </apex:outputText>
+                            <apex:pageblock title="Calendar Tasks" id="masterTask2" rendered="{!MasterCalendars.size > 0}">
+                                <apex:pageBlockButtons location="bottom" style="text-align:left;padding-left:40%;">
+                                    <apex:commandButton value="Submit" action="{!saveAccountTask}" onclick="return validDate('{!taskType}');"/>
+                                </apex:pageBlockButtons>
+                                <apex:variable value="{!1}" var="userI"/>
+                                <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                    <apex:variable value="{!0}" var="repeatOne"/>
+                                    <apex:variable value="{!1}" var="firstRowTask"/>
+                                    <apex:repeat value="{!MasterCalendars}" var="item" id="masterTaskRepeatOne">
+                                        <tr class="dataRow odd first" onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" onmouseover="if (window.hiOn){hiOn(this);}">
+                                            <apex:outputText rendered="{!firstRowTask == 1}">
+                                                <td colspan="2" align="left"><b>{!item.PeriorName}</b></td>
+                                                <td>
+                                                    <apex:outputText rendered="{!taskType != 'Employee'}">
+                                                        <b>Task Assigned To</b>
+                                                    </apex:outputText>
+                                                </td>
+                                            </apex:outputText>
+                                            <apex:outputText rendered="{!firstRowTask != 1}">
+                                                <td colspan="3" align="left"><b>{!item.PeriorName}</b></td>
+                                            </apex:outputText>
+                                            <apex:variable value="{!firstRowTask + 1}" var="firstRowTask"/>
+                                        </tr>
+                                        <apex:variable value="{!0}" var="repeatTwo"/>
+                                        <apex:repeat value="{!item.CalendarProxys}" var="calendars" id="masterTaskRepeatTwo">
+                                            <tr class="dataRow odd first">
+                                                <td style="width:4%">
+                                                    <apex:outputText rendered="{!item.PeriorName == 'Yearly'}">
+                                                        <apex:inputCheckbox value="{!calendars.isChecked}" styleClass="calendarTaskCheckbox yearly5EndDate"/>
+                                                    </apex:outputText>
+                                                    <apex:outputText rendered="{!item.PeriorName != 'Yearly'}">
+                                                        <apex:inputCheckbox value="{!calendars.isChecked}" styleClass="calendarTaskCheckbox noselectedYearly"/>
+                                                    </apex:outputText>
+                                                </td>
+                                                <td style="width:40%">
+                                                    <a class="calendarTaskName{!FLOOR(userI)}" href="/{!calendars.masterCalendar.Id}" onmousemove="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').setPosition(event)" onmouseout="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').hideHover()" onmouseover="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').showHover(event, '/ui/core/activity/TaskTemplate?id={!calendars.masterCalendar.Id}&amp;isHvr=1&amp;nocache=1332413204340&amp;shBus=true')" style="text-decoration:none">
+                                                        <!--<apex:outputText value="{!IF(LEN(calendars.masterCalendar.Name) > 20,LEFT(calendars.masterCalendar.Name, 20) + '...',calendars.masterCalendar.Name)}"/>-->
+                                                        <apex:outputText value="{!calendars.masterCalendar.Name}"/>
+                                                    </a>
+                                                    <div class="hoverDetail hoverDetailOffsetted" id="TaskTemplate_{!calendars.masterCalendar.Id}" onmousemove="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').setPosition(event)" onmouseout="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').hideHover()" onmouseover="ActivityHover.getHover('TaskTemplate_{!calendars.masterCalendar.Id}').showHover(event, '/ui/core/activity/TaskTemplate?id={!calendars.masterCalendar.Id}&amp;isHvr=1&amp;nocache=1332412217003&amp;shBus=true')" style="visibility: hidden; ">
+                                                        <div class="hoverOuter noStatusBar">
+                                                            <div class="hoverInner">
+                                                                <div class="hoverContent" id="TaskTemplate_{!calendars.masterCalendar.Id}_content">
+                                                                    <div class="bSubBlock" style="background-color: white;border-bottom:none;">
+                                                                        <div class="bPageBlock secondaryPalette" id="TaskTemplate_{!calendars.masterCalendar.Id}_page">
+                                                                            <div class="pbHeader">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" style="border-bottom:none;">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="pbTitle" style="border-bottom:none;">
+                                                                                                <h2 class="mainTitle">Calendar Task Detail</h2>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="pbBody">
+                                                                                <div class="pbSubsection">
+                                                                                    <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td class="labelCol" style="vertical-align:top">Task Title</td>
+                                                                                                <td class="dataCol"><apex:outputField value="{!calendars.masterCalendar.Name}"/></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="labelCol" style="vertical-align:top">Task Body</td>
+                                                                                                <td class="dataCol"><apex:outputField value="{!calendars.masterCalendar.taskmanage1__TaskBody__c}"/></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="labelCol" style="vertical-align:top">Period</td>
+                                                                                                <td class="dataCol"><apex:outputField value="{!calendars.masterCalendar.taskmanage1__Period__c}"/></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="labelCol" style="vertical-align:top">Recurrence</td>
+                                                                                                <td class="dataCol"><apex:outputField value="{!calendars.masterCalendar.taskmanage1__Recurrence__c}"/></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td class="labelCol" style="vertical-align:top">Priority</td>
+                                                                                                <td class="dataCol"><apex:outputField value="{!calendars.masterCalendar.taskmanage1__Priority__c}"/></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="pbFooter secondaryPalette">
+                                                                                <div class="bg"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <apex:outputText rendered="{!taskType != 'Employee'}">
+                                                        <apex:selectList size="1" value="{!calendars.accountFirst}" onchange="accountOwnerChagne({!FLOOR(userI)}, {!FLOOR(repeatOne)}, {!FLOOR(repeatTwo)});" styleClass="accountOrContactOwnerUserFirst accountOwnerUser{!FLOOR(userI)}">
+                                                            <apex:selectOption itemLabel="Account Owner" itemValue="Account" rendered="{!taskType == 'Account'}"/>
+                                                            <apex:selectOption itemLabel="Contact Owner" itemValue="Account" rendered="{!taskType == 'Contact'}"/>
+                                                            <apex:selectOption itemLabel="User" itemValue="User" />
+                                                        </apex:selectList>
+                                                        <apex:inputHidden id="newOwnerId" value="{!calendars.OwnerId}"/>
+                                                        <apex:selectList size="1" rendered="{!taskType != 'Employee'}" style="display:none" onchange="userListValue({!FLOOR(userI)}, {!FLOOR(repeatOne)}, {!FLOOR(repeatTwo)})" styleClass="employeeTaskType accountUser{!FLOOR(userI)} userId{!FLOOR(userI)}">
+                                                            <apex:selectOptions value="{!calendars.Users}"/>
+                                                        </apex:selectList>
+                                                    </apex:outputText>
+                                                </td>
+                                            </tr>
+                                            <apex:variable value="{!userI + 1}" var="userI"/>
+                                            <apex:variable value="{!repeatTwo + 1}" var="repeatTwo"/>
+                                        </apex:repeat>
+                                        <apex:variable value="{!repeatOne + 1}" var="repeatOne"/>
+                                    </apex:repeat>
+                                    <tr style="display:none;">
+                                        <td>
+                                            <input type="hidden" name="accountOrContactIds" class="accountOrContactIds" value="0"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:pageblock>
+                        </td>
+                    </apex:outputText>
+                </tr>
+            </table>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

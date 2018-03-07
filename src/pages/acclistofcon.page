@@ -1,0 +1,10 @@
+<apex:page controller="dataListCon1">
+<apex:pageBlock >
+    <apex:pageblocktable value="{!contacts}" var="contact" >
+        <apex:column value="{!contact.Name}"/>
+        <apex:column value="{!contact.Account.Name }"/>
+        <apex:column value="{!contact.Account.AccountNumber }"/>
+        <apex:column value="{!contact.Account.AnnualRevenue }"/>
+    </apex:pageblocktable>
+</apex:pageBlock>    
+</apex:page>

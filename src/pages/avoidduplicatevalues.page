@@ -1,0 +1,9 @@
+<apex:page controller="avoidduplicatevalues"> 
+<apex:form >  
+Countries: 
+<apex:selectList size="1" multiselect="false">
+<apex:selectOptions value="{!records}" > 
+</apex:selectOptions>
+</apex:selectList>
+   </apex:form>
+</apex:page>

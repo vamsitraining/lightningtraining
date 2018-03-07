@@ -1,0 +1,32 @@
+<apex:page controller="gettingvaluefropoup7child">
+<apex:form >
+    <script>
+        var newWin=null;
+
+        function openPopup(){
+            var url='/apex/popup7child';
+            newWin=window.open(url, 'Popup','height=500,width=700,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+        }  
+                                  
+        function closePopup(){
+            if (null!=newWin){
+                newWin.close();
+            }  
+        }
+    </script>
+    <apex:pageBlock >
+       <apex:pageBlockSection >
+                            The employee name is {!EmployeeName}
+                            <apex:commandlink onclick="openPopup();return false;" value="Show Popup">
+                            </apex:commandlink><br/>
+                            The employee name is {!EmployeeName2}<br/>
+                            The employee name is {!EmployeeName3}<br/>
+                    
+       </apex:pageBlockSection> 
+    </apex:pageBlock>
+   <apex:commandlink onclick="openPopup();return false;" value="Show Popup">
+    </apex:commandlink>
+   
+    </apex:form>
+    
+</apex:page>

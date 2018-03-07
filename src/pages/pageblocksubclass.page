@@ -1,0 +1,12 @@
+<apex:page controller="myController2">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!tableRows}" var="row">
+        <apex:column ><apex:inputCheckbox value="{!row.isSelected}"/></apex:column>
+        <apex:column headerValue="Contact First Name"><apex:inputField value="{!row.theContact.firstname}"/></apex:column>
+        <apex:column headerValue="Contact Last Name"><apex:inputField value="{!row.theContact.lastname}"/></apex:column>
+        <apex:column headerValue="Account Name"><apex:inputField value="{!row.theAccount.name}"/></apex:column>
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

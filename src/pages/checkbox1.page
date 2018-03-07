@@ -1,0 +1,45 @@
+<apex:page controller="checkbox1">
+<apex:form >
+<apex:inputcheckbox value="{!chk1}"/>
+<apex:pageblock >
+<apex:pageblocksection > 
+<apex:pageblocktable value="{!record1}" var="r1">
+<apex:column headervalue="PersonName">
+<apex:outputtext value="{!r1.personname__c}"/>
+</apex:column>
+<apex:column headervalue="City">
+<apex:outputtext value="{!r1.city__c}"/>
+</apex:column>
+<apex:column headervalue="Country">
+<apex:outputtext value="{!r1.Country__c}"/>
+</apex:column>
+<apex:column headervalue="Phone">
+<apex:outputtext value="{!r1.Phone__c}"/>
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection> 
+</apex:pageblock>
+
+
+
+<apex:inputcheckbox value="{!chk2}"/>
+<apex:pageblock >
+<apex:pageblocksection > 
+<apex:pageblocktable value="{!record2}" var="r2">
+<apex:column headervalue="PersonName">
+<apex:outputtext value="{!r2.personname__c}"/>
+</apex:column>
+<apex:column headervalue="City">
+<apex:outputtext value="{!r2.city__c}"/>
+</apex:column>
+<apex:column headervalue="Country">
+<apex:outputtext value="{!r2.Country__c}"/>
+</apex:column>
+<apex:column headervalue="Phone">
+<apex:outputtext value="{!r2.Phone__c}"/> 
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

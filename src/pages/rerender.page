@@ -1,0 +1,14 @@
+<apex:page >
+<apex:form >
+   <apex:pageBlock >
+       <apex:sectionHeader title="Rerender Example"/>      
+           <apex:commandButton value="Move your mouse here to refresh the time!">
+               <apex:actionSupport event="onmouseover" rerender="time" status="refreshstatus"/>
+           </apex:commandButton>
+           <apex:actionStatus id="refreshstatus" startstyle="color:green;" startText="Refreshing...."></apex:actionStatus>  
+           <apex:outputpanel id="time">
+               <apex:outputtext value="{!NOW()}"/>
+           </apex:outputpanel>  
+   </apex:pageBlock>
+</apex:form>  
+</apex:page>

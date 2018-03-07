@@ -1,0 +1,13 @@
+<apex:page sidebar="false">
+    <apex:tabPanel switchType="client">
+        <apex:tab label="JNTU" style="width:150px">
+            <apex:iframe src="http://www.jntu.ac.in" scrolling="true"/>
+        </apex:tab>
+        <apex:tab label="Osmania" title="Click Here for Osmania Website">
+            <apex:iframe src="http://www.osmania.ac.in" scrolling="true"/>
+        </apex:tab>
+        <apex:tab >
+            
+        </apex:tab>
+    </apex:tabPanel>
+</apex:page>

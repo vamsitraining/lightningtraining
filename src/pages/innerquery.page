@@ -1,0 +1,14 @@
+<apex:page controller="innerquery1"> 
+<apex:form >  
+<apex:pageblock >   
+<apex:repeat value="{!records}" var="c">
+<br/>
+<b><u><apex:outputtext value="{!c.Name}" style="color:green;"/></u></b>
+<apex:repeat value="{!c.State__r}" var="s">
+<br/> 
+<apex:outputtext value="{!s.Name}" style="margin-left:50px;color:blue;" />
+</apex:repeat> 
+</apex:repeat>
+</apex:pageblock>
+   </apex:form>
+</apex:page>

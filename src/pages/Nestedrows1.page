@@ -1,0 +1,28 @@
+<apex:page tabstyle="Account" controller="nestedqueryexample">
+<apex:form >
+    <apex:pageblock > 
+        <apex:pageblocktable value="{!accsandtmember}"  var="accdet">
+            
+            <apex:column headervalue="Account Name">
+                    <apex:outputtext value="{!accdet.Name}"/>
+            </apex:column>
+            <apex:column headervalue="Billing Country">
+                    <apex:outputtext value="{!accdet.BillingCountry}"/>
+            </apex:column>
+            <apex:column >
+                   <apex:facet name="header">                                        
+                         Team Members                                                                               
+                    </apex:facet>
+                    <apex:pageblocktable value="{!accdet.Contacts}" var="tm">
+                       <apex:column headerValue="">
+                               <apex:inputfield value="{!tm.FirstName}"/>
+                        </apex:column>
+                         <apex:column headerValue="">
+                               <apex:outputfield value="{!tm.Name}"/>
+                         </apex:column>                        
+                    </apex:pageblocktable>
+            </apex:column>
+        </apex:pageblocktable>
+    </apex:pageblock>
+</apex:form>
+</apex:page>

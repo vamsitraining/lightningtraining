@@ -1,0 +1,16 @@
+<apex:page controller="sampleCon">
+    <apex:form >
+    <apex:pageMessages id="message" />
+    <apex:pageBlock >
+    <apex:pageBlockTable value="{!wrap1}" var="item" id="hello">
+    <apex:column headerValue="String" value="{! item.x}"></apex:column>
+    <apex:column headerValue="Action"><apex:commandButton value="{!if(item.i == size-1,'Add','Delete')}" onclick="AddOrDelete({! item.i});" rerender="message"></apex:commandButton></apex:column>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:actionRegion >
+     <apex:actionFunction name="AddOrDelete" action="{!addElement}" reRender="message,hello">
+     <apex:param value="" name="fieldName" />
+  </apex:actionFunction>
+     </apex:actionRegion>
+    </apex:form>
+</apex:page>

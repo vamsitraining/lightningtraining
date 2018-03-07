@@ -1,0 +1,70 @@
+<apex:page standardController="Account" extensions="ContactStatusCount" showHeader="false">
+   <br/><br/> 
+   <table width="10%" border="1" cellspacing="0" align="center">
+       <tr>
+            <th>Status</th>
+            <th>Count</th>
+        </tr>
+        <tr>
+            <td>Unaware</td>
+            <td>{!sum}</td>
+        </tr>
+        <tr>
+            <td>Aware-Positive</td>
+            <td>{!awarepositive}</td>
+        </tr>
+        <tr>
+            <td>Aware-Negative</td>
+            <td>{!awareNegative}</td>
+        </tr>
+        <tr>
+            <td>Aware-Neutral or Champion</td>
+            <td>{!awareChampion}</td>
+        </tr>
+    </table>
+    
+    <apex:includeScript id="a" value="https://www.google.com/jsapi" />
+    <!-- Google Charts will be drawn in this DIV -->
+    <div id="chartBlock" />
+    <script type="text/javascript">
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {'packages':['corechart']});
+       
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(initCharts);
+   
+        function initCharts() {         
+          // Following the usual Remoting syntax
+          // [<namespace>.]<controller>.<method>([params...,] <callbackFunction>(result, event) {...}
+          // controller : GoogleChartsController
+          // method : loadOpps
+          ContactStatusCount.getData( 
+                 function(result, event){  
+                     // load Column chart
+                     var visualization = new google.visualization.ColumnChart(document.getElementById('chartBlock'));
+                     // Prepare table model for chart with columns
+                     var data = new google.visualization.DataTable();
+                     data.addColumn('string', 'stg');
+                     data.addColumn('number', 'total');
+                    
+                     // add rows from the remoting results
+                     for(var i =0; i<result.length;i++){
+                        var r = result[i];
+                        data.addRow([r.stg, r.total]); 
+                      }
+                       var options = {
+                          width:240, height:180,
+                          hAxis: {title: "Projects count",titleTextStyle:{fontName: 'ARIAL',fontSize:18}},
+                          legend:'none',
+                          vAxis: {title: 'Branch ID',titleTextStyle:{fontName: 'ARIAL',fontSize:18}}
+                    <!--  chartArea:{left:70,top:10,bottom:0,width: "50%"}  -->
+                        };
+                    // all done, lets draw the chart with some options to make it look nice.
+                    visualization.draw(data,options);
+              }, {escape:true});
+          } 
+    </script>
+        
+  
+  
+</apex:page>

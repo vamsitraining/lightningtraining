@@ -1,0 +1,19 @@
+<apex:page standardcontroller="TrainingTest__c" recordsetvar="records">
+<c:component1 ></c:component1><br/>
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:pageblocktable value="{!records}" var="r">
+<apex:column headervalue="Name">
+<apex:outputtext value="{!r.name}"/>
+</apex:column>
+<apex:column headervalue="City">
+<apex:outputtext value="{!r.City__c}"/>
+</apex:column>
+<apex:column headervalue="Country">
+<apex:outputtext value="{!r.Country__c}"/>
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+
+</apex:page>

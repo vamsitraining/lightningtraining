@@ -1,0 +1,22 @@
+<apex:page controller="dynamicController"> 
+    
+   <apex:form >
+       
+    <apex:pageblock >
+            <br></br>
+            <br></br>
+        <apex:commandButton value=" Add Row " action="{!AddRecord}" reRender="pb1"/>
+            <br></br>
+            <br></br>           
+            <apex:pageBlockTable id="pb1" value="{!lstWrapper}"  var="item">
+                <apex:column headerValue="Name">
+                    <apex:outputLabel value="{!item.sName}" />
+                </apex:column>
+                 <apex:column headerValue="Gender">
+                 <apex:outputLabel value="{!item.isFlag}" />
+                </apex:column>
+            </apex:pageBlockTable>            
+    </apex:pageblock> 
+    
+     </apex:form>
+</apex:page>

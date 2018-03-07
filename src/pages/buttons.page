@@ -1,0 +1,11 @@
+<apex:page >
+  <form name="groovyform">
+
+   type="button"
+   name="groovybtn1"
+   class="groovybutton"
+   value="Sample 1"
+   title="">
+</form>
+
+</apex:page>

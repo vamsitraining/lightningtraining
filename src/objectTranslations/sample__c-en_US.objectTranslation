@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>sample</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>sample</value>
+    </caseValues>
+    <fields>
+        <label><!-- checkbox --></label>
+        <name>checkbox__c</name>
+    </fields>
+    <fields>
+        <label><!-- date --></label>
+        <name>date__c</name>
+    </fields>
+    <fields>
+        <label><!-- picklist --></label>
+        <name>picklist__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- text --></label>
+        <name>text__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- cannot edit the record --></errorMessage>
+        <name>check_box_validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A &amp;B  CannotNot Selected --></errorMessage>
+        <name>picklist_validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- text started with 5 is not valid --></errorMessage>
+        <name>text_validation</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,26 @@
+<apex:page controller="multiAccountInsert1">
+<apex:form >
+<apex:sectionHeader title="flexandsalesforceblog" subtitle="AddRows" help="Http://flexandsalesforce.blogspot.com"/>
+   <apex:pageBlock title="Add row Dynamically" >
+     <apex:pageBlockButtons location="bottom">
+         <apex:commandButton value="Save" action="{!save_close}" rerender="error"/>
+       </apex:pageBlockButtons>
+       <Div align="right">
+             <apex:inputText value="{!num}" style="width:45px"/>
+             <apex:commandButton value="Add rows" action="{!add_rows}"/> 
+       </Div>
+       <br/>
+      <apex:pageBlockTable value="{!accts}" var="a" id="table">
+         <apex:column headerValue="Name">
+               <apex:inputField value="{!a.Name}"/>
+          </apex:column>
+          <apex:column headerValue="phone">
+             <apex:inputField value="{!a.phone}"/>
+         </apex:column>
+         <apex:column headerValue="website">
+             <apex:inputField value="{!a.website}"/>
+         </apex:column>
+       </apex:pageBlockTable>
+   </apex:pageBlock>
+    </apex:form>
+</apex:page>

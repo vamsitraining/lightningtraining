@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Training</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Training</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional cources --></label>
+        <name>Additional_cources__c</name>
+        <picklistValues>
+            <masterLabel>ASP</masterLabel>
+            <translation><!-- ASP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASP.Net</masterLabel>
+            <translation><!-- ASP.Net --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C#</masterLabel>
+            <translation><!-- C# --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C++</masterLabel>
+            <translation><!-- C++ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Java</masterLabel>
+            <translation><!-- Java --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSBI</masterLabel>
+            <translation><!-- MSBI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obiee</masterLabel>
+            <translation><!-- Obiee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oracle</masterLabel>
+            <translation><!-- Oracle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sql Server</masterLabel>
+            <translation><!-- Sql Server --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Backup Support --></label>
+        <name>Backup_Support__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batches Completed --></label>
+        <name>Batches_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batches in progress --></label>
+        <name>Batches_in_progress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Certification Support --></label>
+        <name>Certification_Support__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+        <picklistValues>
+            <masterLabel>Bangalore</masterLabel>
+            <translation><!-- Bangalore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chennai</masterLabel>
+            <translation><!-- Chennai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyderabad</masterLabel>
+            <translation><!-- Hyderabad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mumbai</masterLabel>
+            <translation><!-- Mumbai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pune</masterLabel>
+            <translation><!-- Pune --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact No --></label>
+        <name>Contact_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Training --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Content --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration Hours --></label>
+        <name>Duration_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration days --></label>
+        <name>Duration_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fee Discount --></label>
+        <name>Fee_Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fee --></label>
+        <name>Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Feedback --></label>
+        <name>Feedback__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lab Facility --></label>
+        <name>Lab_Facility__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lab Faculty --></label>
+        <name>Lab_Faculty__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Ameerpet&apos;</masterLabel>
+            <translation><!-- Ameerpet&apos; --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Andheri</masterLabel>
+            <translation><!-- Andheri --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anna Nagar</masterLabel>
+            <translation><!-- Anna Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BTM</masterLabel>
+            <translation><!-- BTM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gachibowli</masterLabel>
+            <translation><!-- Gachibowli --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gandhi Nagar</masterLabel>
+            <translation><!-- Gandhi Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guindy</masterLabel>
+            <translation><!-- Guindy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP Nagar</masterLabel>
+            <translation><!-- JP Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaya Nagar</masterLabel>
+            <translation><!-- Jaya Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jeppiar Nagar</masterLabel>
+            <translation><!-- Jeppiar Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Koramangala</masterLabel>
+            <translation><!-- Koramangala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Madapur</masterLabel>
+            <translation><!-- Madapur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marathalli</masterLabel>
+            <translation><!-- Marathalli --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Navy Mumbai&apos;</masterLabel>
+            <translation><!-- Navy Mumbai&apos; --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pallavaram</masterLabel>
+            <translation><!-- Pallavaram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Powai</masterLabel>
+            <translation><!-- Powai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pune City</masterLabel>
+            <translation><!-- Pune City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Punjagutta</masterLabel>
+            <translation><!-- Punjagutta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR Nagar</masterLabel>
+            <translation><!-- SR Nagar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tambaram</masterLabel>
+            <translation><!-- Tambaram --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Material --></label>
+        <name>Material__c</name>
+    </fields>
+    <fields>
+        <label><!-- Morning Sessions --></label>
+        <name>Morning_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Sessions --></label>
+        <name>Other_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Placement Assistance --></label>
+        <name>Placement_Assistance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Support --></label>
+        <name>Project_Support__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Balance Fee --></label>
+        <name>Total_Balance_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fee paid --></label>
+        <name>Total_Fee_paid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total fee --></label>
+        <name>Total_fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of training --></label>
+        <name>Type_of_training__c</name>
+        <picklistValues>
+            <masterLabel>Class Room</masterLabel>
+            <translation><!-- Class Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-line</masterLabel>
+            <translation><!-- On-line --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Website --></label>
+        <name>Website__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- 123 --></label>
+        <name>X123</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- DURATION MUST 40 TO 50 --></errorMessage>
+        <name>DURATION_VALIDATION</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- FEE MUST BE ABOVE RS.10000 --></errorMessage>
+        <name>Fee_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

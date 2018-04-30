@@ -118,7 +118,7 @@
     <target name="describeMetadata">
       <sf:describeMetadata username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}"/>
     </target>
-	<target name="deployYourProject" depends="proxy" >
+	<target name="deployYourProject"  > <!-- depends="proxy" -->
     <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="Src" checkOnly="true" testLevel="NoTestRun" /> <!-- RunLocalTests-->
 </target>
 </project>

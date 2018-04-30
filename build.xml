@@ -119,6 +119,6 @@
       <sf:describeMetadata username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}"/>
     </target>
 	<target name="deployYourProject" depends="proxy" >
-    <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="C:\ANT\apache-ant-1.10.2-bin\apache-ant-1.10.2\bin\retrieveUnpackaged" checkOnly="true" testLevel="NoTestRun" /> <!-- RunLocalTests-->
+    <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="https://github.com/vamsitraining/lightningtraining/edit/master/build.xml" checkOnly="true" testLevel="NoTestRun" /> <!-- RunLocalTests-->
 </target>
 </project>
